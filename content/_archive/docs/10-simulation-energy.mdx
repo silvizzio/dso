@@ -1,0 +1,82 @@
+---
+title: "Energy"
+order: 10
+section: "Simulation"
+description: "The Environment what-if for the island microgrid: forecast when renewable share falls toward diesel backup, and what to dispatch before it does."
+---
+
+![How the energy simulation works](sim-opening-energy.png)
+
+The Energy simulation is the environment team's what-if for the island microgrid. It takes a demand and supply setting, an evening peak on a cloudy day with the battery starting low, and plays it forward against the renewable balance to forecast when the island would lean on diesel backup before it happens. The value is lead time: the run surfaces a falling renewable share while dispatch, charging, and reserve can still be shaped.
+
+The run is a selection, not free authoring. A scenario preset and a few boxed inputs on the left size the pressure, the twin carries an energy-flow and battery overlay, and the right panel reads the forecast: an outcome banner, the forecasted conditions, and the responses worth weighing. It is an exploration tool, so nothing dispatches from here. Do nothing is the lowest tier, and for energy it trends to the projected worst rather than holding, because a supply gap compounds.
+
+It opens in the Environment view, scoped to Shura Island, and the model behind it is HOMER Pro.
+
+![Energy simulation: the left panel sets the demand and supply scenario, the twin carries the grid-load overlay, and the right panel reads the renewable forecast.](05-env-lod3-simulation-energy.jpg)
+
+## Setting up the run
+
+The left panel composes the scenario. Scenario preset is the one-tap starting point: Daytime, Evening, or Peak deficit. Evening is shown, the early-night window where solar fades while occupancy load stays high.
+
+The boxed inputs size it. Demand (Off-peak, Evening, Peak) sets the load curve. Solar (Clear, Cloudy, Night) sets generation, Cloudy here suppressing midday yield. Battery start (80, 60, 40 percent) sets how much stored energy the day opens with, 60 here. EV charging (Low, High) sets the controllable load, High here adding pressure. Layers shown carries the energy-flow and battery overlays onto the twin.
+
+| Control | What it sets |
+| --- | --- |
+| Scenario preset | Daytime, Evening, or Peak deficit, a one-tap starting pattern |
+| Demand | Off-peak, Evening, or Peak load curve, here Evening |
+| Solar | Clear, Cloudy, or Night generation, here Cloudy |
+| Battery start | Stored energy at the open, 80, 60, or 40 percent, here 60 |
+| EV charging | Controllable charging load, Low or High, here High |
+| Layers shown | Energy flow and Battery overlays on the twin |
+
+## Reading the forecast
+
+The right panel reads top to bottom, cause to consequence. The Forecasted Outcome banner is the headline: Diesel-backup risk, renewable share falls toward the diesel-backup trigger. The run does not fail now, it drifts toward a diesel call, and that is the window to act in.
+
+Forecasted Conditions carries the detail. Renewable share is the hero at 62 percent, down 26 from base, the single number the run turns on. CO2 emissions Rising and Carbon avoided Lower are the climate cost of that drift; Curtailment High means usable generation is being spilled; Battery reserve Thin means the buffer that would cover the gap is already low. The map fills with a grid-load heatmap, cool where the network is light through red where it is heaviest.
+
+| Forecast | Reading |
+| --- | --- |
+| Forecasted outcome | Diesel-backup risk, renewable share falls toward the diesel-backup trigger |
+| Renewable share | 62 percent, down 26 from base |
+| CO2 emissions | Rising |
+| Carbon avoided | Lower |
+| Curtailment | High |
+| Battery reserve | Thin |
+
+The run closes with recommended responses, each a modeled preview rather than a dispatch.
+
+| Recommended action | Why it is offered |
+| --- | --- |
+| Prioritize renewable dispatch | Lifts renewable share back off the diesel-backup trigger |
+| Hold reserve for zero-diesel target | Protects the battery buffer that would otherwise cover the gap |
+| Flag diesel-backup risk | Puts the trigger on the operations radar before it is crossed |
+| Log curtailment for reporting | Records the spilled generation behind the high-curtailment reading |
+| Do nothing | Trends to the projected worst, the supply gap compounds |
+
+## Reading the energy forecast
+
+Reading the forecast is watching renewable share against its trigger and the reserve behind it, not any single panel value. The rules:
+
+- Anchor on renewable share against base. 62 percent at minus 26 is the story, and the diesel-backup trigger is the line it is falling toward.
+- Read reserve and curtailment together. A thin reserve alongside high curtailment means stored energy is being spilled while the buffer that would cover a gap runs down.
+- Treat Do nothing as compounding. Unlike the marine runs, energy trends to the projected worst with no action, so the lowest tier degrades rather than holds.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Renewable share | Share of load met by renewables | Falls toward the diesel-backup trigger, here 62 percent at minus 26 |
+| Battery reserve | Buffer left to cover a supply gap | Reads Thin while demand still climbs |
+| Curtailment | Usable generation being spilled | Reads High, generation wasted while reserve runs down |
+| CO2 emissions | Carbon cost of the supply mix | Rising, the mix leaning off renewables |
+
+| Grid load | Reading |
+| --- | --- |
+| Low | Network lightly loaded |
+| Moderate | Comfortable headroom |
+| High | Approaching capacity |
+| Very high | At or near the limit |
+
+<Callout type="warning">
+This is an exploration run. Nothing here is saved to live operations, and the recommended responses are modeled previews, not dispatched actions.
+</Callout>

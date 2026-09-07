@@ -1,0 +1,105 @@
+---
+title: "Crowd"
+order: 8
+section: "Simulation"
+description: "The Guest Experience what-if: forecast where guests build up across the destination and dispatch the response before anyone waits too long."
+---
+
+![How the crowd simulation works](sim-opening-crowd.png)
+
+The Crowd simulation is the guest experience team's what-if tool. It takes a known or expected demand event, a peak arrival, a VIP movement, a weather disruption, and plays it forward against the island's current mobility capacity to forecast where guest movement will strain before it actually does. The value is lead time: the forecast surfaces the squeeze at +45 minutes while there is still room to act, so the team dispatches ahead of the queue rather than chasing it.
+
+Every run follows the same arc. You set a trigger (the event and how intense it is), the model forecasts the effect (the resource demand and the guest-experience metrics that move), and it proposes a response (the recommended actions you can implement). Reading a run is reading that chain: what we are putting on the island, what it does to capacity, and what closes the gap.
+
+It opens from the top button on the right toolbar in the Guest Experience view, scoped to Marina here, and follows the same rhythm as every simulation:
+
+{/* run-flow-steps: ["Choose the event to simulate, or create a new one.", "Set up the scenario: the event, the volume, and the response to test.", "Choose an action plan, or create a new one.", "Run it.", "Read the crowd forecast.", "Implement a plan from the right panel."] */}
+
+![How a run flows, from set up through to acting on the forecast.](07-simulation-crowd-flow.svg)
+
+## Before running
+
+![Crowd simulation before a run: the left panel builds the scenario, the right panel shows the current live readings, and Run Simulation starts it.](03-gxm-lod3-simulation-crowd-before.jpg)
+
+Before running sets the trigger and the assumptions the forecast runs on. The left panel is the scenario; the right panel shows the live readings the forecast departs from.
+
+Event to simulate is the trigger itself. The presets cover the events the Marina sees most: Peak Arrival Surge (a +180% transfer wave concentrated at the Marina), VIP Convoy (reserved routing through SLS), and Weather Disruption (a tender hold under 24 kn wind). Tick the one you want to model, or stack more than one to test a compound day.
+
+Guest Volume sets the scale of the day, expected guests on-island, from 500 up to 5,000, with 2,500 as the mid case shown here. Intensity preset (Normal, Peak, Surge, VIP) shapes how that volume arrives: Peak front-loads it into the arrival window rather than spreading it evenly, which is what turns a manageable headcount into a capacity event.
+
+Pre-Trip Variables tune the Marina's throughput assumptions: Marina Capacity (the processing rate, 30/hr here) and Buffer Time (the slack between legs, 6 min). Lowering either makes the same surge bite harder, which is how you stress-test a thin-staffed shift.
+
+The right panel is the baseline the run departs from, the current transfer variance, booking requests, available vehicles, and request age before the event is applied. Run Simulation plays the trigger forward from these readings.
+
+| Control | What it sets |
+| --- | --- |
+| Phase | Pre-Trip, Trip, or Post-Trip, the part of the guest journey to model |
+| Event to simulate | Peak Arrival Surge (+180% transfer wave at Marina), VIP Convoy (reserved routing), Weather Disruption (tender hold, wind 24 kn), or a New Event you define |
+| Guest volume | Guests expected on the island, here 2,500 |
+| Intensity preset | Normal, Peak, Surge, or VIP, a one-tap starting pattern you can fine-tune |
+| Pre-trip variables | The assumptions the run leans on, here marina capacity 30 per hour and buffer time 6 minutes |
+| Action plan | The response to test: Baseline (do nothing), Recall and Relieve (3 actions), or Reroute and Advise (2 actions) |
+
+## After running
+
+![Crowd simulation after a run: the heatmap and the right panel show the forecast, resource demand, KPIs, and recommended actions.](03-gxm-lod3-simulation-crowd-after.jpg)
+
+After running, the right panel fills with the forecast: the outcome, the resource demand it creates, the health of guest mobility, and the metrics that moved. Read it top to bottom, because it is ordered as cause to consequence.
+
+The Forecasted Outcome banner is the headline. Here it reads Capacity at risk: guest increase outpaces fleet and charger capacity at +45 min, with three recommended actions below. That single line is the whole point of the run, the surge does not break anything now, it breaks in 45 minutes, and that is the window you have to act in.
+
+Forecasted Resource Demand quantifies the squeeze. Vehicles needed reads 52 against 10 available, and Chargers needed reads 18, up 5. This is the gap in plain terms: the event asks for far more rolling stock and charging than the current pool holds.
+
+The Mobility Health Index rolls that into one number, 68 out of 100 against a healthy threshold of 85, strained at 2,400 guests/hr. It is the at-a-glance read on whether guest movement is coping; below the marker means the experience degrades, longer waits and fuller buggies, even if nothing fails outright.
+
+Forecasted KPI breaks out the movers: Transfer variance +34% (legs running well off plan), Booking request 680 (demand pressure), Available vehicles 18 of 46 (how thin the usable pool is), and Avg request age 2.2 min (how long guests wait for assignment). Top Stations Requesting points to where it concentrates, Marina and SLS.
+
+The map also fills with a crowd heatmap, cool blue where flow is light through red where it is heaviest, so a developing crowd is visible exactly where it would form. A sustained heavy area is the same signal that raises a crowd density alert in live operation, which makes the run a safe way to find those hotspots in advance.
+
+| Forecast | Reading |
+| --- | --- |
+| Forecasted outcome | Capacity at risk: the guest increase outpaces fleet and charger capacity at +45 minutes, with 3 recommended actions |
+| Forecasted resource demand | Vehicles needed 52, EV chargers needed 18 |
+| Mobility health index | 68 of 100, strained at 2,400 guests per hour against a healthy threshold of 85 |
+| Forecasted KPI | Transfer variance +18% to +34%, booking requests 412 to 680, available vehicles 28 to 18, request age 2.2 minutes |
+| Top stations requesting | Marina, then SLS |
+
+The run closes with recommended-action cards, each carrying a trigger badge, a plain-language action, the numbers behind it, and a dispatch control.
+
+| Trigger | Recommended action | Why |
+| --- | --- | --- |
+| Watch occupancy | Dispatch 2 buggies to the Spine Corridor | 318 traveling, lead buggy at 5 of 6 seats, occupancy tightening |
+| Over target | Follow up on low-rated arrival, review Marina to villas leg | Service score slipping on that leg |
+
+## Reading the crowd forecast
+
+Reading the forecast is separating signal from noise across those numbers and knowing which thresholds matter. Read it in three moves: the heatmap shows where pressure builds, the mobility health index shows how bad, and the forecasted KPIs show why. A few rules make the table below quicker to read:
+
+- Read the deltas, not just the values. The move from +18% to +34% on transfer variance, or the jump in booking requests, is the story; a number without its baseline hides whether the day is normal or exceptional.
+- Anchor on the mobility health index. It is the composite, so it decides whether to act at all. Above 85 the day absorbs the event, in the 68 range it is strained and the recommended actions are worth taking, far below it is recovery rather than prevention.
+- Mind the lead time in the outcome banner. The +45 minutes is the decision window: actions inside it prevent the queue, the same actions after it only shorten it.
+- Follow Top Stations Requesting to place the response. The index tells you there is a problem, the stations tell you where to put the buggies.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Mobility health index | Whole-network health, 0 to 100, healthy at 85 | Falls below 85; the lower it goes, the closer to capacity |
+| Transfer variance | Gap between planned and actual transfers | Climbs off the baseline, here +18% to +34% |
+| Booking requests | Demand on the mobility service | Rises faster than vehicles can clear, here 412 to 680 |
+| Available vehicles | Free vehicles against the fleet | Falls toward zero, here 28 to 18 |
+| Request age | How long the average request has waited | Rises past the service target |
+
+Exit Simulation returns the twin to live data.
+
+<Callout type="warning">
+While simulation is on, the alert tray shows scenario alerts, not live ones. Live incidents are held until you close simulation.
+</Callout>
+
+## Implementing a plan
+
+Implementing a plan is the response end of the run. Once the forecast is on screen, the right panel lists the actions the guest experience persona prepared for this event, each with its forecasted effect and an Implement control. The first here, under Watch Occupancy, is Dispatch 2 buggies to the Spine Corridor, with the reasoning attached: 318 traveling, lead buggy at 5 of 6 seats, occupancy tightening.
+
+Selecting Implement enacts that action: the dispatch routes to the guest-mobility teams and the affected stations, the action moves into the live operations view, and the forecast baseline re-anchors so the next run measures against the post-action state. That is the step that turns a what-if into an executed response.
+
+A plan can be implemented as forecasted, or adjusted first by reopening it under Action plan, editing its actions, and re-running to confirm the new effect before dispatch. Implementing the right one inside the lead-time window is what keeps the forecasted strain from becoming a real queue.
+
+![After implementing Recall and Relieve: the forecast re-runs with the action applied, the outcome shifts to Stabilizing, and the mobility health index recovers toward the healthy threshold.](03-gxm-lod3-simulation-crowd-after-implemented.jpg)

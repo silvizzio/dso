@@ -1,0 +1,96 @@
+---
+title: "Traffic"
+order: 9
+section: "Simulation"
+description: "The Operations what-if: forecast how the fleet, charging, and the road network hold up under load, down to the vehicle mix and the buildings in scope."
+---
+
+![How the traffic simulation works](sim-opening-mobility.png)
+
+The Traffic simulation is the operations team's what-if tool for the fleet and the road network. It takes a day's load, a scenario preset, a guest volume, a fleet size, and forecasts how the vehicle fleet, charging, and road capacity hold up, then where to rebalance. Like the Crowd run it works on the trigger then effect then response arc: you set the operating conditions, the model forecasts utilization and charging strain, and it proposes the repositioning and pooling moves that recover headroom.
+
+Where Crowd is read from the guest's side, waits, satisfaction, station demand, Traffic is read from the asset's side, utilization, idle time, charging, driver fatigue. Same day, same island, the operational half of the picture. In the Operations Manager view, scoped to Turtle Bay here, Simulation sits alongside Fleet, Utilization, Drivers, and EV, and the run follows the same rhythm:
+
+{/* run-flow-steps: ["Choose the event to simulate, or create a new one.", "Set the forecast type and the fleet assumptions.", "Choose the buildings and vehicle types in scope.", "Choose an action plan, or create a new one.", "Run it.", "Read the fleet and traffic forecast.", "Implement a plan from the right panel."] */}
+
+![How a run flows, from set up through to acting on the forecast.](08-simulation-traffic-flow.svg)
+
+## Before running
+
+![Traffic simulation before a run: the left panel sets the forecast type, scenario, fleet assumptions, buildings, and vehicle mix, with the current readings on the right.](08-simulation-traffic-before.jpg)
+
+Before running sets the operating conditions for the run. Scenario Preset (Normal, Peak, Surge, Maintenance) is the headline assumption; Maintenance, for instance, takes assets offline and tightens everything downstream. Guest Volume (expected on-island, 2,500 here) is the demand the fleet has to serve.
+
+The fleet assumptions follow: Number of Vehicles (available on-island, 800 in this run), Vehicle Capacity (average seats per vehicle), Active EV Chargers (the charging pool), and Speed on Road (average km/h, which sets how fast a vehicle completes a leg and returns to service). Buildings (Marina Hub, Spine Hub, Bridge Point, Beach Cluster) scopes which demand centers are in the run. The Vehicle, Charging, and Combined tabs switch which layer the run emphasizes.
+
+Lower the fleet or the chargers, or drop road speed, and the same guest volume produces a sharper utilization and charging forecast, which is how you find the point where the day stops being comfortable.
+
+| Control | What it sets |
+| --- | --- |
+| Forecast type | Vehicle, Charging, or Combined |
+| Scenario preset | Normal, Peak, Surge, or Maintenance |
+| Guest volume | Expected on-island, here 2,500 |
+| Number of vehicles | Available on-island, here 800 |
+| Vehicle capacity | Average per vehicle, here 2,500 |
+| Active EV chargers | The active charger count |
+| Speed on road | Average km per hour, here 100 |
+| Buildings | Marina Hub, Spine Hub, Bridge Point, Beach Cluster, toggled in or out of scope |
+| Vehicle types | Shuttles (16, 92% util), Buggies (22, 78% util), Tenders (6, marina), VIP cars (2, reserved) |
+
+## After running
+
+![Traffic simulation after a run: a traffic heatmap lights the road network and the right panel reads the fleet capacity outlook, the forecasted metrics, and the recommended actions.](08-simulation-traffic-after.jpg)
+
+After running, the right panel forecasts how the fleet copes. The Forecasted Outcome banner reads Fleet Capacity Risk: 8 vehicles over-utilized at peak +45 min, 3 chargers forecast at capacity. As with Crowd, the headline names the problem and its timing.
+
+Forecasted Key Metrics is the detail, read as pairs of value and delta. Vehicles needed 52 (+10 vs current) and Util at peak 96% (+5 vs now) are the strain, the fleet runs nearly flat-out at the peak. Idle time 6% (-8 vs now) confirms there is little slack left to absorb a wobble. Maint backlog 2 (+2 by end of shift) flags assets about to drop out. On the energy side, Charging demand 84% (3 chargers maxed) and Energy needed +620 kWh (vs typical) say the charging network, not just the vehicles, is a constraint. Fatigue risk 3 (bridge drivers) and Fuel deficit -2% (vs floor) round out the human and supply limits.
+
+The road network also lights with a traffic heatmap, cool blue where roads are clear through red where they are congested, so the bottlenecks show up as the roads that would actually jam. The chain reads cleanly: the day's load pushes utilization to 96% and charging to 84%, idle time collapses, and a handful of vehicles and chargers tip over the line at the peak. Nothing is broken at the start of the run, the risk is concentrated 45 minutes out.
+
+| Metric | Reading | Against now |
+| --- | --- | --- |
+| Vehicles needed | 52 | +10 |
+| Utilization at peak | 96% | +5 |
+| Idle time | 6% | -8 |
+| Maintenance backlog | 2 | +2 by end of shift |
+| Charging demand | 84% | 3 chargers maxed |
+| Energy needed | +620 kWh | vs typical |
+| Fatigue risk | 3 | bridge drivers |
+| Fuel deficit | -2% | vs fleet |
+
+| Trigger | Recommended action | Why |
+| --- | --- | --- |
+| Idle asset | Reposition idle pod to Turtle Bay demand | Pod idle at 0 pax, 4 single-occupant sedans queued, 5 assets under-used |
+| Low occupancy | Pool reception trips to lift buggy occupancy | 18 of 24 buggies in use at 2.0 of 6 seats, pooling frees about 6 vehicles |
+
+Forecast spec: model Guest Flow AI v2, forecast type Guest Flow, window Now +60 minutes, buildings 6 of 6, stations 12 of 14, scenario Normal, seed #8836, last run 14:32 AST.
+
+## Reading the fleet forecast
+
+Reading the forecast is knowing which of those metrics is the binding constraint on the day. Read the verdict first, then the metric that drove it: utilization and charging set capacity risk, fatigue and maintenance set continuity risk. Three rules sharpen the read:
+
+- Utilization and idle time are read together. 96% utilization with 6% idle means the fleet has no buffer; the next disruption has nowhere to absorb. High utilization with healthy idle is a busy day; high utilization with near-zero idle is a fragile one.
+- Treat charging as a separate ceiling. Vehicles needed can look solvable while Charging demand at 84% with three chargers maxed is the real limit, you cannot dispatch what cannot charge. Energy needed is the same constraint in kWh.
+- Maintenance backlog and Fatigue risk are leading indicators of tomorrow. They do not bite at the peak, but they shrink the pool you start the next shift with.
+- Read the peak, not the average. The metrics are framed at peak +45 min because that is where the day fails; a comfortable daily average can still contain a peak that tips the fleet over.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Utilization at peak | Share of the fleet in use at peak | Approaches 100%, here 96% |
+| Idle time | Share of the fleet sitting unused | Very low means over-stretched, very high means waste |
+| Charging demand | Load on the EV chargers | Chargers hit capacity, here 3 maxed at 84% |
+| Energy needed | Extra energy the scenario draws | Rises against typical, here +620 kWh |
+| Maintenance backlog | Vehicles waiting on service | Grows across the shift, here +2 by end of shift |
+| Fatigue risk | Drivers near a fatigue limit | Any count above zero, here 3 on the bridge |
+
+<Callout type="warning">
+While simulation is on, the alert tray shows scenario alerts, not live ones. Live incidents are held until you close simulation.
+</Callout>
+
+## Implementing a plan
+
+Implementing a plan turns the forecast into fleet moves. The right panel lists the operations persona's prepared actions for the run, each with its rationale and an Implement control. Here, under Idle Asset, Reposition idle pod to Turtle Bay demand (pod idle at 0 pax, 4 single-occupant sedans queued, 5 assets under-used); and under Low Occupancy, Pool reception trips to lift buggy occupancy (18 of 24 buggies in use at 2.0 of 6 seats, pooling frees about 6 vehicles).
+
+Both recover headroom rather than add vehicles, repositioning idle assets to where demand is and pooling under-occupied trips to free up rolling stock. Selecting Implement routes the move to the fleet and building teams, pushes it into live operations, and re-anchors the baseline so the next run reflects the freed capacity. This is the operational lever the forecast is pointing at: before adding cost, use the fleet you already have better.
+
+![After implementing the Spine Corridor divert: the forecast re-runs with the action applied, the outcome shifts to Easing, and the modeled Causeway load drops back under capacity.](08-simulation-traffic-implemented.jpg)

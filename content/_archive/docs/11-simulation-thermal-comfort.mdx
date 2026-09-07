@@ -1,0 +1,82 @@
+---
+title: "Outdoor thermal comfort"
+order: 11
+section: "Simulation"
+description: "The Environment what-if for heat on the ground: forecast where shade runs short and the site crosses the comfort threshold, and what to change before guests feel it."
+---
+
+![How the outdoor thermal comfort simulation works](sim-opening-outdoor-thermal-comfort.png)
+
+The Outdoor thermal comfort simulation is the environment team's what-if for heat on the ground. It takes a time of day and weather setting, midday sun with medium humidity on current shading, and plays it forward to forecast where the site crosses the comfort threshold before guests feel it. The value is lead time: the run surfaces where shade runs short while canopy, routing, and surface choices can still change.
+
+The run is a selection, not free authoring. A scenario preset and a few boxed inputs on the left size the heat, the twin carries a feels-like UTCI overlay with named spot readings, and the right panel reads the forecast: an outcome banner, the forecasted conditions, and the responses worth weighing. It is an exploration tool, so nothing dispatches from here. Do nothing is the lowest tier and holds at the modeled level, the heat does not compound on its own.
+
+It opens in the Environment view, scoped to Shura Island, and the model behind it is Ladybug Tools.
+
+![Outdoor thermal comfort simulation: the left panel sets the time and weather, the twin carries the feels-like UTCI overlay with spot readings, and the right panel reads the shade forecast.](05-env-lod3-simulation-outdoor-thermal-comfort.jpg)
+
+## Setting up the run
+
+The left panel composes the scenario. Scenario preset is the one-tap starting point: Mild AM, Midday, or Heat Peak. Midday is shown, the window where sun is highest and shade matters most.
+
+The boxed inputs size it. Time of day (Morning, Midday, Afternoon) sets the sun angle. Air temperature (31, 38, 32) sets the base heat, 38 here. Humidity (Low, Med, High) shapes how that heat feels, Med here. Shade level (Added, Current) sets whether the run tests the site as built or with new shade, Current here. Layers shown carries the feels-like heat, the comfort threshold zone, and the pool deck and broadwalk onto the twin.
+
+| Control | What it sets |
+| --- | --- |
+| Scenario preset | Mild AM, Midday, or Heat Peak, a one-tap starting pattern |
+| Time of day | Morning, Midday, or Afternoon sun angle, here Midday |
+| Air temperature | Base heat, 31, 38, or 32, here 38 |
+| Humidity | How the heat feels, Low, Med, or High, here Med |
+| Shade level | As built or with new shade, Added or Current, here Current |
+| Layers shown | Feels-like heat, comfort threshold zone, pool deck and broadwalk |
+
+## Reading the forecast
+
+The right panel reads top to bottom, cause to consequence. The Forecasted Outcome banner is the headline: Exposure risk, shaded share drops site-wide as midday sun peaks.
+
+Forecasted Conditions carries the detail. Shade availability is the hero at 42 percent, down 23 from base, the share of the site under cover at peak sun. Site heat-stress High and Surface comfort Poor are the felt result; Cooling gain Low means passive measures are doing little at this hour; Exposed area Large is the footprint that carries the risk. The twin names specific spots, the pool reading 24.2 comfortable while exposed paths read 36.5 hot, 39.8 very hot, and 34.1 warm to hot, with the UTCI heatmap running cool to red.
+
+| Forecast | Reading |
+| --- | --- |
+| Forecasted outcome | Exposure risk, shaded share drops site-wide as midday sun peaks |
+| Shade availability | 42 percent, down 23 from base |
+| Site heat-stress | High |
+| Surface comfort | Poor |
+| Cooling gain | Low |
+| Exposed area | Large |
+
+The run closes with recommended responses, each a modeled preview rather than a dispatch.
+
+| Recommended action | Why it is offered |
+| --- | --- |
+| Plant buffer canopy | Adds standing shade where exposed area is largest |
+| Increase passive shading | Lifts the cooling-gain reading at peak sun |
+| Flag exposed surfaces for review | Marks the hot surfaces behind the surface-comfort reading |
+| Log heat-stress hotspots | Records the named spots running hot to very hot |
+| Do nothing | Holds at the modeled level, the heat does not compound on its own |
+
+## Reading the thermal forecast
+
+Reading the forecast is comparing shaded share and the named spot readings to the comfort threshold, not the air temperature alone. The rules:
+
+- Anchor on shade availability against base. 42 percent at minus 23 is the story, less cover exactly when the sun is highest.
+- Read the UTCI spots by band. The map names places, the pool comfortable while exposed paths read hot to very hot, so the response goes where the band is worst.
+- Act on the surfaces, not the air. Canopy and passive shading change the exposed-area and cooling-gain readings; the sun angle cannot be moved.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Shade availability | Share of the site under cover | Drops against base at peak sun, here 42 percent at minus 23 |
+| Site heat-stress | Felt heat load across the site | Reads High through the midday window |
+| Surface comfort | Comfort of walked and seated surfaces | Reads Poor on exposed decks and paths |
+| Exposed area | Footprint carrying the heat risk | Reads Large, spreading the exposure |
+
+| Heat stress (UTCI) | Reading |
+| --- | --- |
+| Comfortable | Within the comfort threshold |
+| Moderate | Noticeable, still tolerable |
+| Strong | Heat stress, shade advised |
+| Very strong | Exposure risk, limit time outdoors |
+
+<Callout type="warning">
+This is an exploration run. Nothing here is saved to live operations, and the recommended responses are modeled previews, not dispatched actions.
+</Callout>

@@ -1,0 +1,82 @@
+---
+title: "Wave"
+order: 16
+section: "Simulation"
+description: "The Marine Operations what-if for sea state at the marina and routes: forecast whether wave height nears the small-craft limit, and what to call before craft are out."
+---
+
+![How the wave simulation works](sim-opening-wave.png)
+
+The Wave simulation is the marine team's what-if for sea state at the marina and the routes. It takes an offshore swell, period, direction, and water-level setting and plays it forward to forecast whether significant wave height nears the small-craft limit before craft are out. The value is lead time: the run surfaces a closing small-craft window while departures and beach calls can still be made.
+
+The run is a selection, not free authoring. A scenario preset and a few boxed inputs on the left size the sea, the twin carries a wave-height field with wave direction, and the right panel reads the forecast: an outcome banner, the forecasted conditions, and the responses worth weighing. It is an exploration tool, so nothing dispatches from here. Do nothing is the lowest tier and holds at the modeled level, the sea state does not compound on its own.
+
+It opens in the Marine Operations view, scoped to North Reef, and the model behind it is SWAN.
+
+![Wave simulation: the left panel sets the swell scenario, the twin carries the wave-height field and wave direction, and the right panel reads the small-craft window.](06-mo-lod3-simulation-wave.jpg)
+
+## Setting up the run
+
+The left panel composes the scenario. Scenario preset is the one-tap starting point: Calm, Moderate, or Storm. Moderate is shown.
+
+The boxed inputs size it. Offshore swell (Calm, Moderate, High) sets the incoming energy, Moderate here. Period (Short, Long) sets the spacing of the waves, Long here. Direction (NW, W) sets where they come from, NW here. Water level (Low, High) sets the depth they run over, High here. Layers shown carries the wave height, the wave direction, the small-craft window zone, and the beach onto the twin.
+
+| Control | What it sets |
+| --- | --- |
+| Scenario preset | Calm, Moderate, or Storm, a one-tap starting pattern |
+| Offshore swell | Calm, Moderate, or High incoming energy, here Moderate |
+| Period | Short or Long wave spacing, here Long |
+| Direction | NW or W, here NW |
+| Water level | Low or High depth, here High |
+| Layers shown | Wave height, wave direction, small-craft window zone, beach |
+
+## Reading the forecast
+
+The right panel reads top to bottom, cause to consequence. The Forecasted Outcome banner is the headline: Small-craft wave risk, significant wave height at the marina nears the small-craft limit.
+
+Forecasted Conditions carries the detail. Wave height (Hs) is the hero at 1.6 m, up 1.1 from base, measured against the small-craft limit. Wave period Short and Direction Cross describe how the waves arrive; Breaking on routes Some marks where they break on the lines craft run; Small-craft window Closed is the operational call. The twin fills with the wave-height field and direction arrows, running Calm to Rough.
+
+| Forecast | Reading |
+| --- | --- |
+| Forecasted outcome | Small-craft wave risk, wave height nears the small-craft limit |
+| Wave height (Hs) | 1.6 m, up 1.1 from base |
+| Wave period | Short |
+| Direction | Cross |
+| Breaking on routes | Some |
+| Small-craft window | Closed |
+
+The run closes with recommended responses, each a modeled preview rather than a dispatch.
+
+| Recommended action | Why it is offered |
+| --- | --- |
+| Restrict small craft | Wave height nears the small-craft limit |
+| Advise marina window | Sets a clear window as the sea state shifts |
+| Close exposed beach | Wave energy reaches the exposed beach |
+| Re-route around breaking zones | Breaking-on-routes reads Some, routes need rerouting |
+| Do nothing | Holds at the modeled level, the sea state does not compound on its own |
+
+## Reading the wave forecast
+
+Reading the forecast is comparing wave height to the small-craft limit and reading direction with it, not the height alone. The rules:
+
+- Anchor on wave height against the small-craft limit. 1.6 m at plus 1.1 is the headline, nearing the limit that closes the window.
+- Read direction with height. A cross direction onto the routes drives the breaking-on-routes reading, not height alone.
+- A closed window is the operational line. Small-craft window Closed is the call the run exists to surface early.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Wave height (Hs) | Significant wave height at the marina | Climbs against base toward the small-craft limit, here 1.6 m at plus 1.1 |
+| Small-craft window | Whether small craft can run | Reads Closed, the operational line |
+| Breaking on routes | Waves breaking on the running lines | Reads Some, routes need rerouting |
+| Direction | Angle the waves arrive at | Reads Cross, worse on the routes than head-on |
+
+| Sea state (Hs) | Reading |
+| --- | --- |
+| Calm | Flat, full operations |
+| Slight | Light chop, workable |
+| Moderate | Building sea, watch the window |
+| Rough | Window closed, hold craft |
+
+<Callout type="warning">
+This is an exploration run. Nothing here is saved to live operations, and the recommended responses are modeled previews, not dispatched actions.
+</Callout>

@@ -1,0 +1,83 @@
+---
+title: "Water quality"
+order: 14
+section: "Simulation"
+description: "The Marine Operations what-if for clarity at the dive sites: forecast whether visibility falls below the activity threshold, and what to change before guests are in the water."
+---
+
+![How the water quality simulation works](sim-opening-water-quality.png)
+
+The Water quality simulation is the marine team's what-if for clarity and condition at the dive sites. It takes a wind, discharge, temperature, and flushing setting and plays it forward to forecast whether visibility falls below the activity threshold before guests are in the water. The value is lead time: the run surfaces a clarity drop while dive scheduling and site choices can still change.
+
+The run is a selection, not free authoring. A scenario preset and a few boxed inputs on the left size the pressure, the twin carries a water-quality index field over the lagoon, and the right panel reads the forecast: an outcome banner, the forecasted conditions, and the responses worth weighing. It is an exploration tool, so nothing dispatches from here. Do nothing is the lowest tier and holds at the modeled level, the condition does not compound on its own.
+
+It opens in the Marine Operations view, scoped to North Reef, and the model behind it is Delft3D-WAQ.
+
+![Water quality simulation: the left panel sets the discharge and flushing scenario, the twin carries the water-quality index field, and the right panel reads dive-site clarity.](06-mo-lod3-simulation-water-quality.jpg)
+
+## Setting up the run
+
+The left panel composes the scenario. Scenario preset is the one-tap starting point: Good, Stressed, or Poor. Stressed is shown.
+
+The boxed inputs size it. Wind speed (Low, Medium, High) sets mixing, Medium here. Discharge (Off, On) sets whether a load enters the basin, On here. Temperature (27, 31) sets the water temperature, 31 here. Flushing (Strong, Weak) sets how fast the basin clears, Weak here, so what enters tends to stay. Layers shown carries the water quality, the flow, and the lagoon onto the twin.
+
+| Control | What it sets |
+| --- | --- |
+| Scenario preset | Good, Stressed, or Poor, a one-tap starting pattern |
+| Wind speed | Low, Medium, or High mixing, here Medium |
+| Discharge | Off or On load into the basin, here On |
+| Temperature | Water temperature, 27 or 31, here 31 |
+| Flushing | Strong or Weak basin clearing, here Weak |
+| Layers shown | Water quality, flow, lagoon |
+
+## Reading the forecast
+
+The right panel reads top to bottom, cause to consequence. The Forecasted Outcome banner is the headline: Dive clarity risk, visibility at dive sites falls below the activity threshold.
+
+Forecasted Conditions carries the detail. Water clarity is the hero at 7.0 m visibility, down 5.0 from base, measured against the activity threshold. Salinity Shifted and Temperature 30 describe the changed water; DO at dive sites Low is the dissolved-oxygen reading that compounds a clarity drop; Activity Limited is the consequence for the day's diving. The twin fills with the water-quality index field, running Excellent to Very Poor.
+
+| Forecast | Reading |
+| --- | --- |
+| Forecasted outcome | Dive clarity risk, visibility falls below the activity threshold |
+| Water clarity | 7.0 m visibility, down 5.0 from base |
+| Salinity | Shifted |
+| Temperature | 30 |
+| DO at dive sites | Low |
+| Activity | Limited |
+
+The run closes with recommended responses, each a modeled preview rather than a dispatch.
+
+| Recommended action | Why it is offered |
+| --- | --- |
+| Flag dive site clarity | Clarity falls below the activity threshold |
+| Advice activity suitability | Activity reads Limited, sites need a suitability call |
+| Sample dive sites | Confirms the modeled clarity and DO on the water |
+| Restrict affected sites | Holds the sites worst hit until clarity recovers |
+| Do nothing | Holds at the modeled level, the condition does not compound on its own |
+
+## Reading the water-quality forecast
+
+Reading the forecast is comparing clarity to the activity threshold and reading dissolved oxygen with it, not clarity alone. The rules:
+
+- Anchor on water clarity against base and the activity threshold. 7.0 m at minus 5.0 is the headline, the line it falls below.
+- Read dissolved oxygen with clarity. Low DO at the dive sites compounds a clarity drop into an activity call.
+- Weak flushing is the driver. With discharge On and flushing Weak, the basin holds what enters it, which is what shifts salinity and clarity.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Water clarity | Visibility at the dive sites | Falls against base below the activity threshold, here 7.0 m at minus 5.0 |
+| DO at dive sites | Dissolved oxygen in the water | Reads Low, compounding the clarity drop |
+| Salinity | Salt balance in the basin | Reads Shifted under weak flushing |
+| Activity | Suitability for the day's diving | Reads Limited as clarity and DO fall |
+
+| Water quality index | Reading |
+| --- | --- |
+| Excellent | Clear, full activity |
+| Good | Workable, activity normal |
+| Moderate | Reduced clarity, watch |
+| Poor | Below threshold, limit activity |
+| Very poor | Restrict affected sites |
+
+<Callout type="warning">
+This is an exploration run. Nothing here is saved to live operations, and the recommended responses are modeled previews, not dispatched actions.
+</Callout>

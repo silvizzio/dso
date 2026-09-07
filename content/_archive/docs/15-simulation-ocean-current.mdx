@@ -1,0 +1,81 @@
+---
+title: "Ocean current"
+order: 15
+section: "Simulation"
+description: "The Marine Operations what-if for flow at the channel and dive routes: forecast whether current raises dive-drift risk, and what to call before boats are out."
+---
+
+![How the ocean current simulation works](sim-opening-ocean-current.png)
+
+The Ocean current simulation is the marine team's what-if for flow at the channel and the dive routes. It takes a tidal, wind, and season setting and plays it forward to forecast whether current at the channel raises dive-drift risk before boats are out. The value is lead time: the run surfaces a strengthening current while dive routing and vessel calls can still change.
+
+The run is a selection, not free authoring. A scenario preset and a few boxed inputs on the left size the flow, the twin carries current speed and direction with the channel marked, and the right panel reads the forecast: an outcome banner, the forecasted conditions, and the responses worth weighing. It is an exploration tool, so nothing dispatches from here. Do nothing is the lowest tier and holds at the modeled level, the current does not compound on its own.
+
+It opens in the Marine Operations view, scoped to North Reef, and the model behind it is Delft3D-FLOW.
+
+![Ocean current simulation: the left panel sets the tidal scenario, the twin carries current speed and direction with the channel marked, and the right panel reads drift risk.](06-mo-lod3-simulation-ocean-current.jpg)
+
+## Setting up the run
+
+The left panel composes the scenario. Scenario preset is the one-tap starting point: Neap, Spring, or Spring Storm. Spring is shown, the stronger tidal range that lifts current at the channel.
+
+The boxed inputs size it. Tidal forcing (Neap, Spring) sets the tidal range, Spring here. Wind (Calm, Strong) adds wind-driven flow, Calm here. Season (Summer, Winter) sets the seasonal pattern, Summer here. Layers shown carries current speed and direction and the channel onto the twin.
+
+| Control | What it sets |
+| --- | --- |
+| Scenario preset | Neap, Spring, or Spring Storm, a one-tap starting pattern |
+| Tidal forcing | Neap or Spring tidal range, here Spring |
+| Wind | Calm or Strong wind-driven flow, here Calm |
+| Season | Summer or Winter pattern, here Summer |
+| Layers shown | Current speed and direction, channel |
+
+## Reading the forecast
+
+The right panel reads top to bottom, cause to consequence. The Forecasted Outcome banner is the headline: Drift risk (watch), current at the channel is strong enough to raise dive-drift risk.
+
+Forecasted Conditions carries the detail. Current speed is the hero at 0.6 m/s, up 0.3 from base. Water level Normal sets the baseline; At channel Mild is the first reading to move as flow concentrates; Drift risk Low and Vessel handling Easy are still in hand. The twin marks the channel with a 2.5 kts hazard-zone tag and a 1.0 kts max-flow tag, and current arrows run Slack to Strong.
+
+| Forecast | Reading |
+| --- | --- |
+| Forecasted outcome | Drift risk (watch), current at the channel raises dive-drift risk |
+| Current speed | 0.6 m/s, up 0.3 from base |
+| Water level | Normal |
+| At channel | Mild |
+| Drift risk | Low |
+| Vessel handling | Easy |
+
+The run closes with recommended responses, each a modeled preview rather than a dispatch.
+
+| Recommended action | Why it is offered |
+| --- | --- |
+| Advise dive on dive routes | Current at the channel raises dive-drift risk on the routes |
+| Flag channel for vessels | Marks the channel where flow concentrates |
+| Restrict drift-risk sites | Holds the sites most exposed to drift |
+| Update vessel handling notes | Keeps handling guidance current as flow builds |
+| Do nothing | Holds at the modeled level, the current does not compound on its own |
+
+## Reading the current forecast
+
+Reading the forecast is reading the channel against the average and watching the values turn before the banner does. The rules:
+
+- Read the channel, not the average. The hero 0.6 m/s is the site reading, while the 2.5 kts hazard-zone tag marks where flow concentrates.
+- Watch the values turn before the banner. Drift risk Low and Vessel handling Easy are still in hand, but At channel Mild is the first to shift as the current builds.
+- Spring forcing is the driver. The Spring tide preset is what lifts current at the channel above the neap baseline.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Current speed | Flow speed at the site | Rises against base, here 0.6 m/s at plus 0.3 |
+| Drift risk | Drift hazard on the dive routes | Moves off Low as the channel strengthens |
+| At channel | Flow concentrated at the channel | Climbs off Mild, the first reading to turn |
+| Vessel handling | Ease of handling craft in the flow | Moves off Easy in a stronger run |
+
+| Current speed | Reading |
+| --- | --- |
+| Slack | Little to no flow |
+| Mild | Light, manageable current |
+| Moderate | Noticeable drift, caution |
+| Strong | Drift hazard, restrict routes |
+
+<Callout type="warning">
+This is an exploration run. Nothing here is saved to live operations, and the recommended responses are modeled previews, not dispatched actions.
+</Callout>

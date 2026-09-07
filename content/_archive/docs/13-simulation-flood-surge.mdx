@@ -1,0 +1,81 @@
+---
+title: "Flood and storm surge"
+order: 13
+section: "Simulation"
+description: "The Marine Operations what-if for water on the shore: forecast how far surge reaches and whether the marina crosses the vessel-risk level, and what to move before it lands."
+---
+
+![How the flood and storm surge simulation works](sim-opening-flood.png)
+
+The Flood and storm surge simulation is the marine team's what-if for water on the shore. It takes a storm, tide, and rainfall setting and plays it forward to forecast how far surge reaches and whether the marina crosses the vessel-risk level before it lands. The value is lead time: the run surfaces a climbing surge while vessels, barriers, and craft can still be moved.
+
+The run is a selection, not free authoring. A scenario preset and a few boxed inputs on the left size the event, the twin carries a flood-depth heatmap with surge inflow direction, and the right panel reads the forecast: an outcome banner, the forecasted conditions, and the responses worth weighing. It is an exploration tool, so nothing dispatches from here. Do nothing is the lowest tier and holds at the modeled level, the surge does not compound on its own.
+
+It opens in the Marine Operations view, scoped to North Reef, and the model behind it is Delft3D.
+
+![Flood and storm surge simulation: the left panel sets the storm scenario, the twin carries the flood-depth heatmap and surge inflow, and the right panel reads the marina surge.](06-mo-lod3-simulation-flood-and-storm-surge.jpg)
+
+## Setting up the run
+
+The left panel composes the scenario. Scenario preset is the one-tap starting point: Calm, High tide, or Storm surge. High tide is shown.
+
+The boxed inputs size it. Storm (None, Cat 1, Cat 3) sets the driver, Cat 1 here. Tide (Low, High, Spring high) sets the water the surge rides on, High here. Rainfall (Dry, Heavy) adds runoff to the total, Dry here. Layers shown carries the flood depth and surge extent, the surge inflow direction, the low-lying risk zone, and the jetty onto the twin.
+
+| Control | What it sets |
+| --- | --- |
+| Scenario preset | Calm, High tide, or Storm surge, a one-tap starting pattern |
+| Storm | None, Cat 1, or Cat 3 driver, here Cat 1 |
+| Tide | Low, High, or Spring high base water, here High |
+| Rainfall | Dry or Heavy runoff, here Dry |
+| Layers shown | Flood depth and surge extent, surge inflow direction, low-lying risk zone, jetty |
+
+## Reading the forecast
+
+The right panel reads top to bottom, cause to consequence. The Forecasted Outcome banner is the headline: Marina surge risk (watch), surge at the marina climbs toward the vessel-risk level.
+
+Forecasted Conditions carries the detail. Surge at marina is the hero at 1.8 m, up 1.5 from base, measured against the vessel-risk level. Flow velocity High and Depth at jetties 1.6 describe the water moving through the berths; Vessel risk High is the consequence for moored craft; Surge arrival Soon sets the window to act in. The twin fills with a flood-depth heatmap and surge inflow arrows, running Dry to Deep.
+
+| Forecast | Reading |
+| --- | --- |
+| Forecasted outcome | Marina surge risk (watch), surge climbs toward the vessel-risk level |
+| Surge at marina | 1.8 m, up 1.5 from base |
+| Flow velocity | High |
+| Depth at jetties | 1.6 |
+| Vessel risk | High |
+| Surge arrival | Soon |
+
+The run closes with recommended responses, each a modeled preview rather than a dispatch.
+
+| Recommended action | Why it is offered |
+| --- | --- |
+| Secure vessels at marina | Vessel risk reads High as surge climbs |
+| Raise jetty barriers | Holds back the depth building at the jetties |
+| Advise surge arrival to craft | Surge arrival reads Soon, the window is short |
+| Move small craft to shelter | Clears the most exposed craft ahead of the peak |
+| Do nothing | Holds at the modeled level, the surge does not compound on its own |
+
+## Reading the surge forecast
+
+Reading the forecast is comparing surge to the vessel-risk level and reading arrival with it, not the height alone. The rules:
+
+- Anchor on surge at the marina against base. 1.8 m at plus 1.5 is the headline against the vessel-risk level.
+- Read arrival with magnitude. Surge arrival Soon sets the window; a high surge hours away is a different call from one arriving soon.
+- Mind the low-lying zone, not just the berths. The surge-extent layer shows where water reaches inland beyond the marina.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Surge at marina | Surge height at the berths | Climbs against base toward the vessel-risk level, here 1.8 m at plus 1.5 |
+| Vessel risk | Risk to moored and small craft | Reads High as surge and flow build |
+| Flow velocity | Speed of water through the berths | Reads High, hard on lines and fenders |
+| Surge arrival | Time before the surge lands | Reads Soon, the lead time to act |
+
+| Flood depth | Reading |
+| --- | --- |
+| Dry | No standing water |
+| Shallow | Sheet water, passable |
+| Moderate | Building depth, access affected |
+| Deep | Hazardous depth, clear the area |
+
+<Callout type="warning">
+This is an exploration run. Nothing here is saved to live operations, and the recommended responses are modeled previews, not dispatched actions.
+</Callout>

@@ -1,0 +1,85 @@
+---
+title: "Wind"
+order: 12
+section: "Simulation"
+description: "The Marine Operations what-if for airflow over the resort and water: forecast whether the marine wind window and small-craft limits hold, and what to call before they tighten."
+---
+
+![How the wind simulation works](sim-opening-wind.png)
+
+The Wind simulation is the marine team's what-if for airflow over the resort and the water. It takes a wind speed and direction setting and plays it forward to forecast whether the marine wind window, small-craft limits, and mooring exposure stay within range. The value is lead time: the run surfaces a tightening window while dive, departure, and mooring calls can still be made early.
+
+The run is a selection, not free authoring. A scenario preset and a few boxed inputs on the left size the wind, the twin carries a wind-speed field with airflow direction, and the right panel reads the forecast: an outcome banner, the forecasted conditions, and the responses worth weighing. It is an exploration tool, so nothing dispatches from here. Do nothing is the lowest tier and holds at the modeled level, the wind does not compound on its own.
+
+It opens in the Marine Operations view, scoped to North Reef, and the model behind it is WRF plus CFD.
+
+## Before running
+
+![Wind simulation before a run: the left panel builds the scenario, the right panel reads idle, and Run Simulation starts it.](06-mo-lod3-simulation-wind-before.jpg)
+
+Before running sets the inputs the forecast departs from. Scenario preset is the one-tap starting point: Calm, Breezy, or Storm. Breezy is shown, a working wind that sits inside the operating range.
+
+The boxed inputs size it. Wind speed (Calm, Breeze, Strong, Gale) sets the band, Breeze here. Direction (NW, W, SW) sets where it comes from, W here, across the marina mouth. Gust factor (Low, High) sets how peaky it is, Low here. Layers shown carries the wind speed, the airflow direction, and the operating-limit zone onto the twin.
+
+Until the run starts the right panel is idle: the forecasted outcome reads Not running, and the marine wind window, wind over water, gusts, small-craft limit, and mooring exposure all read empty. Run Simulation plays the scenario forward from these inputs.
+
+| Control | What it sets |
+| --- | --- |
+| Scenario preset | Calm, Breezy, or Storm, a one-tap starting pattern |
+| Wind speed | Calm, Breeze, Strong, or Gale band, here Breeze |
+| Direction | NW, W, or SW, here W |
+| Gust factor | Low or High peakiness, here Low |
+| Layers shown | Wind speed, airflow direction, operating-limit zone |
+
+## After running
+
+![Wind simulation after a run: the wind field sweeps the map and the right panel reads the marine wind window, the conditions, and the responses.](06-mo-lod3-simulation-wind.jpg)
+
+The right panel reads top to bottom. The Forecasted Outcome banner is the headline, and here it is the stable case: Within normal range, inputs are at a breezy setting, no action needed. This is the read an operator wants to confirm before committing the day's marine schedule.
+
+Forecasted Conditions carries the detail. Marine wind window is the hero at 14 kn, up 5.3 from base, the workable window for craft. Wind over water Light, Gusts Low, Small-craft limit Clear, and Mooring exposure Low all sit inside their limits, which is why the banner reads normal. The twin shows the wind-speed field with airflow arrows, running Calm to Gale.
+
+| Forecast | Reading |
+| --- | --- |
+| Forecasted outcome | Within normal range, inputs are at a breezy setting, no action needed |
+| Marine wind window | 14 kn, up 5.3 from base |
+| Wind over water | Light |
+| Gusts | Low |
+| Small-craft limit | Clear |
+| Mooring exposure | Low |
+
+The run still lists responses, here precautionary because the forecast is within range, each a modeled preview rather than a dispatch.
+
+| Recommended action | Why it is offered |
+| --- | --- |
+| Restrict small craft | Held ready if the band climbs toward the small-craft limit |
+| Advise marina departure window | Sets a clear window if wind over water rises |
+| Add mooring lines | Pre-empts mooring exposure in a stronger run |
+| Hold dive trips | The call if gusts and the window tighten |
+| Do nothing | Holds at the modeled level, the wind does not compound on its own |
+
+## Reading the wind forecast
+
+Reading the forecast is comparing the window and the limits to their thresholds, not the gust alone. The rules:
+
+- Read the window against its limits, not the speed in isolation. 14 kn at a breezy setting sits inside the operating range, which is why the banner reads normal.
+- Use direction with speed. A W wind across the marina mouth matters more to small craft than the same speed offshore.
+- Note this is the stable case. The responses are precautionary; they become pressing as the band climbs to Strong or Gale.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Marine wind window | Workable wind window for craft | Narrows as the band climbs off Breeze |
+| Small-craft limit | Margin to the small-craft threshold | Moves off Clear toward the limit |
+| Mooring exposure | Load on moored vessels | Rises off Low in a stronger, gustier run |
+| Gusts | Peakiness above the steady wind | Climbs off Low, the operating risk |
+
+| Wind strength | Reading |
+| --- | --- |
+| Calm | Settled, no operating limit |
+| Breeze | Working wind, within range |
+| Strong | Advisory, limits approaching |
+| Gale | Suspend exposed activity |
+
+<Callout type="warning">
+This is an exploration run. Nothing here is saved to live operations, and the recommended responses are modeled previews, not dispatched actions.
+</Callout>

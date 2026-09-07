@@ -1,0 +1,83 @@
+---
+title: "Coral reef"
+order: 17
+section: "Simulation"
+description: "The Marine Operations what-if for reef heat stress at the dive sites: forecast whether bleaching risk approaches the closure trigger, and what to plan before the reef is affected."
+---
+
+![How the coral reef simulation works](sim-opening-coral-reef.png)
+
+The Coral reef simulation is the marine team's what-if for reef heat stress at the dive sites. It takes a heat-stress, water-quality, disturbance, and horizon setting and plays it forward to forecast whether bleaching risk approaches the closure trigger before the reef is affected. The value is lead time: the run surfaces a rising risk while site rotation and protection can still be planned.
+
+The run is a selection, not free authoring. A scenario preset and a few boxed inputs on the left size the stress, the twin carries a coral heat-stress field on the reef and dive sites, and the right panel reads the forecast: an outcome banner, the forecasted conditions, and the responses worth weighing. It is an exploration tool, so nothing dispatches from here. Do nothing is the lowest tier and holds at the modeled level, the stress does not compound on its own.
+
+It opens in the Marine Operations view, scoped to North Reef. The model behind it is ReefMod-GBR, with bleaching risk read on the NOAA Coral Reef Watch degree-heating-weeks (DHW) scale.
+
+![Coral reef simulation: the left panel sets the heat-stress scenario, the twin carries the coral heat-stress field on the reef and dive sites, and the right panel reads bleaching risk.](06-mo-lod3-simulation-coral.jpg)
+
+## Setting up the run
+
+The left panel composes the scenario. Scenario preset is the one-tap starting point: Baseline, Watch, or Severe. Watch is shown.
+
+The boxed inputs size it. Heat stress (DHW) (0, 4, 8, 12) sets the accumulated heat, 4 here. Water quality (Good, Poor) sets the background condition, Good here. Disturbance (None, COTS, Cyclone) adds a shock, None here. Horizon (Now, 1 year, 5 years) sets how far the run projects accumulated stress, 1 year here. Layers shown carries the coral heat stress, the reef zone, and the reef and dive sites onto the twin.
+
+| Control | What it sets |
+| --- | --- |
+| Scenario preset | Baseline, Watch, or Severe, a one-tap starting pattern |
+| Heat stress (DHW) | Accumulated heat, 0, 4, 8, or 12, here 4 |
+| Water quality | Good or Poor background condition, here Good |
+| Disturbance | None, COTS, or Cyclone shock, here None |
+| Horizon | Now, 1 year, or 5 years projection, here 1 year |
+| Layers shown | Coral heat stress, reef zone, reef and dive sites |
+
+## Reading the forecast
+
+The right panel reads top to bottom, cause to consequence. The Forecasted Outcome banner is the headline: Dive-site reef risk (watch), heat stress at dive-site reefs approaches the closure trigger.
+
+Forecasted Conditions carries the detail. Bleaching risk is the hero at 5.2 DHW, up 3.2 from base, on the NOAA degree-heating-weeks scale. Reef health Good and Disturbance Low describe the reef as it stands; Anchor/boat risk Low and Closure trigger Clear show the operational lines are not yet crossed. The run is about the approach, not a breach. The twin fills with the coral heat-stress field, running No stress to Alert.
+
+| Forecast | Reading |
+| --- | --- |
+| Forecasted outcome | Dive-site reef risk (watch), heat stress approaches the closure trigger |
+| Bleaching risk | 5.2 DHW, up 3.2 from base |
+| Reef health | Good |
+| Disturbance | Low |
+| Anchor/boat risk | Low |
+| Closure trigger | Clear |
+
+The run closes with recommended responses, each a modeled preview rather than a dispatch.
+
+| Recommended action | Why it is offered |
+| --- | --- |
+| Flag dive site clarity | Marks the dive-site reefs nearing the closure trigger |
+| Advice activity suitability | Sets a suitability call as heat stress rises |
+| Sample dive sites | Confirms the modeled heat stress on the reef |
+| Restrict affected sites | Rests the sites worst hit to protect recovery |
+| Do nothing | Holds at the modeled level, the stress does not compound on its own |
+
+## Reading the coral forecast
+
+Reading the forecast is reading bleaching risk on the DHW scale and separating the approach from a breach, not the single value alone. The rules:
+
+- Read bleaching risk on the DHW scale. 5.2 DHW at plus 3.2 sits in the Watch-to-Warning range, approaching the closure trigger.
+- Separate the trigger from the current state. Reef health still reads Good and the closure trigger still reads Clear; the run is about the approach, not a breach.
+- Use the horizon. The 1-year horizon projects accumulated heat stress, so a Watch now can read very differently at 5 years.
+
+| Metric | What it measures | Watch when |
+| --- | --- | --- |
+| Bleaching risk | Accumulated heat on the DHW scale | Rises against base toward the closure trigger, here 5.2 DHW at plus 3.2 |
+| Closure trigger | Margin to a dive-site closure | Moves off Clear as DHW climbs |
+| Reef health | Condition of the reef | Slips off Good under sustained heat |
+| Anchor/boat risk | Pressure from anchoring and boats | Rises off Low at busy sites |
+
+| Bleaching risk (DHW) | Reading |
+| --- | --- |
+| No stress | Below the watch level |
+| Watch | Heat accumulating, monitor |
+| Warning | Bleaching likely, plan protection |
+| Critical | Significant bleaching expected |
+| Alert | Severe stress, restrict sites |
+
+<Callout type="warning">
+This is an exploration run. Nothing here is saved to live operations, and the recommended responses are modeled previews, not dispatched actions.
+</Callout>
