@@ -14,7 +14,7 @@ export default function PrintButton({ slug }: Props) {
   async function handle() {
     setLoading(true)
     try {
-      const res = await fetch('/project/api/pdf?slug=' + encodeURIComponent(slug))
+      const res = await fetch('/dso/api/pdf?slug=' + encodeURIComponent(slug))
       if (!res.ok) throw new Error('Failed')
       const blob = await res.blob()
       const url = URL.createObjectURL(blob)

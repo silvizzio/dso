@@ -5,7 +5,7 @@ export function DocImage({ src, alt }: { src: string; alt?: string }) {
   // Normalise to the served URL. Accept a bare filename, an /api/img/ path,
   // or any prefixed slug; only the basename matters since images are flat.
   const filename = path.basename(src.replace(/^\/api\/img\//, ''))
-  const url = `/project/api/img/${filename}`
+  const url = `/dso/api/img/${filename}`
   const ext = path.extname(filename).toLowerCase()
   const isSvg = ext === '.svg'
 

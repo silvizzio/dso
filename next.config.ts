@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
-  basePath: '/project',
+  basePath: '/dso',
   outputFileTracingIncludes: {
     "/api/pdf": ["./content/docs/**/*"],
   },
@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/',
-        destination: '/project',
+        destination: '/dso',
         basePath: false,
         permanent: false,
       },

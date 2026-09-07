@@ -18,7 +18,7 @@ export default function DocHeader({ searchDocs }: Props) {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '48px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <MobileNav docsBySection={docsBySection} lastUpdated={getLastUpdated()} />
-            <img src="/project/logo.svg" alt="Project" width={20} height={20} style={{ display: 'block' }} />
+            <img src="/dso/logo.svg" alt="Project" width={20} height={20} style={{ display: 'block' }} />
             <span style={{ fontSize: '13px', fontWeight: 500 }}>Project</span>
             <span style={{ color: 'hsl(var(--muted-foreground))', opacity: 0.4 }}>/</span>
             <Link href="/" style={{ fontSize: '13px', color: 'hsl(var(--muted-foreground))', textDecoration: 'none' }}>Documentation</Link>

@@ -28,7 +28,7 @@ export default function MobileNav({ docsBySection, currentSlug, lastUpdated }: {
             onClick={(e) => e.stopPropagation()}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px 16px', borderBottom: '1px solid hsl(var(--border))', marginBottom: '12px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><img src="/project/logo.svg" alt="Project" width={24} height={24} style={{ flexShrink: 0, display: 'block' }} /><div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><img src="/dso/logo.svg" alt="Project" width={24} height={24} style={{ flexShrink: 0, display: 'block' }} /><div>
                 <p style={{ fontSize: '12px', fontWeight: 500 }}>Project</p>
                 <p style={{ fontSize: '10px', color: 'hsl(var(--muted-foreground))' }}>v1.0 · {lastUpdated?.monthYear ?? new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
               </div></div>

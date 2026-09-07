@@ -8,7 +8,7 @@ export default function FullGuideButton() {
   async function handle() {
     setLoading(true)
     try {
-      const res = await fetch('/project/api/pdf?full=true')
+      const res = await fetch('/dso/api/pdf?full=true')
       if (!res.ok) throw new Error('Failed')
       const blob = await res.blob()
       const url = URL.createObjectURL(blob)

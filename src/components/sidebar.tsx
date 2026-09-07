@@ -22,7 +22,7 @@ export default function Sidebar({ docsBySection, lastUpdated }: Props) {
       <div style={{ position: 'sticky', top: 0, height: '100vh', overflowY: 'auto', borderRight: '1px solid hsl(var(--border))', background: 'hsl(var(--background))' }} className="sidebar-scroll">
         <div style={{ padding: '16px 0 16px', borderBottom: '1px solid hsl(var(--border))', marginBottom: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0 16px' }}>
-            <img src="/project/logo.svg" alt="Project" width={24} height={24} style={{ flexShrink: 0, display: 'block' }} />
+            <img src="/dso/logo.svg" alt="Project" width={24} height={24} style={{ flexShrink: 0, display: 'block' }} />
             <div>
               <p style={{ fontSize: '12px', fontWeight: 500, lineHeight: 1.3 }}>Project</p>
               <p style={{ fontSize: '10px', color: 'hsl(var(--muted-foreground))' }}>v1.0 · {lastUpdated?.monthYear ?? new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>

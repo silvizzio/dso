@@ -98,7 +98,7 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const slug = searchParams.get('slug')
   const full = searchParams.get('full') === 'true'
-  const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000') + '/project'
+  const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000') + '/dso'
 
   let browser: Awaited<ReturnType<typeof launchBrowser>> | undefined
   try {

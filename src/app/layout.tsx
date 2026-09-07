@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://project.vercel.app'),
+  metadataBase: new URL('https://dso.vercel.app'),
   title: 'Project Documentation',
   description: 'Project documentation.',
 }
