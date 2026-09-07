@@ -30,7 +30,7 @@ export default function Home() {
       <main style={{ maxWidth: '920px', margin: '0 auto', padding: '48px 16px', flex: 1, width: '100%' }}>
 
         <div className="mb-12">
-          <h1 className="text-3xl font-medium mb-2">Project Documentation</h1>
+          <h1 className="text-3xl font-medium mb-2">Dubai Silicon Oasis (DSO)</h1>
           <p className="text-muted-foreground text-sm">
             Replace this description per project. One line on what the twin does and who it serves.
           </p>
@@ -108,7 +108,7 @@ export default function Home() {
       </main>
 
       <footer style={{ borderTop: '1px solid hsl(var(--border))', padding: '16px', maxWidth: '1440px', width: '100%', margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
-        <p style={{ fontSize: '12px', color: 'hsl(var(--muted-foreground))' }}>Project Documentation</p>
+        <p style={{ fontSize: '12px', color: 'hsl(var(--muted-foreground))' }}>Dubai Silicon Oasis (DSO)</p>
         <p style={{ fontSize: '12px', color: 'hsl(var(--muted-foreground))' }}>Vizzio Confidential</p>
       </footer>
     </div>

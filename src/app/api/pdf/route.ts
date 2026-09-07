@@ -5,7 +5,7 @@ import path from 'path'
 
 export const maxDuration = 120
 
-const HDR = "<div style=\"width:100%;font-family:Inter,system-ui,sans-serif;font-size:7pt;color:#999;display:flex;justify-content:space-between;align-items:center;padding:0 20mm 2mm;border-bottom:0.3pt solid #e5e5e5\"><span style=\"font-weight:600\">Project Documentation</span><span>Confidential</span></div>"
+const HDR = "<div style=\"width:100%;font-family:Inter,system-ui,sans-serif;font-size:7pt;color:#999;display:flex;justify-content:space-between;align-items:center;padding:0 20mm 2mm;border-bottom:0.3pt solid #e5e5e5\"><span style=\"font-weight:600\">Dubai Silicon Oasis (DSO)</span><span>Confidential</span></div>"
 const FTR = "<div style=\"width:100%;font-family:Inter,system-ui,sans-serif;font-size:7pt;color:#999;display:flex;justify-content:space-between;align-items:center;padding:2mm 20mm 0;border-top:0.3pt solid #e5e5e5\"><span>Vizzio · July 2026</span><span style=\"font-weight:600\"><span class=\"pageNumber\"></span> / <span class=\"totalPages\"></span></span></div>"
 const CSS = "aside,header,.no-print{display:none!important}main{margin:0!important}main>div{padding:20px 0!important}main>div>div:first-child{display:none!important}"
 const CHROMIUM_URL = "https://github.com/Sparticuz/chromium/releases/download/v131.0.1/chromium-v131.0.1-pack.tar"

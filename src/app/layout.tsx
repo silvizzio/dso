@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dso.vercel.app'),
-  title: 'Project Documentation',
+  title: 'Dubai Silicon Oasis (DSO)',
   description: 'Project documentation.',
 }
 
