@@ -62,6 +62,11 @@ export default function CanvaViewer({ design, pages, startPage }: { design: stri
             onClick={e => { const r = (e.currentTarget as HTMLDivElement).getBoundingClientRect(); go(e.clientX - r.left > r.width / 2 ? page + 1 : page - 1) }}
             style={{ position: 'absolute', inset: 0, cursor: 'pointer', background: 'transparent' }} />
         ) : null}
+        {hasStrip ? (
+          <div aria-live="polite" style={{ position: 'absolute', left: '50%', bottom: '16px', transform: 'translateX(-50%)', pointerEvents: 'none', background: 'rgba(17,18,19,0.78)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.18)', borderRadius: '999px', padding: '6px 14px', fontSize: '13px', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.02em' }}>
+            {page} / {total}
+          </div>
+        ) : null}
       </div>
 
       {hasStrip ? (
