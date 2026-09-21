@@ -2,10 +2,12 @@ import type { Metadata } from 'next'
 import CanvaViewer, { type DeckPage } from './canva-viewer'
 
 // Full-screen Canva prototype at /dso/canva.
-// The page list is read from Canva's public view page on every visit,
-// because Canva signs each thumbnail link for about 15 minutes.
+// The page list and the Canva document version are read from Canva's public view page
+// on every visit. Thumbnails come from /dso/api/canva-thumb, keyed by that version,
+// so they refresh by themselves whenever the deck changes in Canva.
 // Keep every closing ">" on the same line as the last attribute.
 const DESIGN = 'https://www.canva.com/design/DAHUOW6WixI/cbnwI4N5aQrecqEjjJN5aw'
+const DESIGN_ID = 'DAHUOW6WixI'
 const START_PAGE = 2
 
 export const dynamic = 'force-dynamic'
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-async function readPages(): Promise<DeckPage[]> {
+async function readDeck(): Promise<{ pages: DeckPage[]; version: string }> {
   try {
     const res = await fetch(`${DESIGN}/view`, {
       cache: 'no-store',
@@ -24,28 +26,20 @@ async function readPages(): Promise<DeckPage[]> {
         'Accept-Language': 'en',
       },
     })
-    if (!res.ok) return []
+    if (!res.ok) return { pages: [], version: '' }
     const html = await res.text()
-
     // Every page appears once in the document data, with an id that starts with PB.
     const ids = new Set([...html.matchAll(/"a":"(PB[A-Za-z0-9_-]{9,})"/g)].map(m => m[1]))
-
-    // Canva only sends thumbnails for the first 20 pages.
-    const re = /"bucket":"document-export\.canva\.com","key":"[^"]*","page":(\d+),"pageHash":-?\d+,"height":\d+,"width":\d+,"url":"((?:[^"\\]|\\.)*)"/g
-    const thumbs = new Map<number, string>()
-    for (const m of html.matchAll(re)) {
-      const page = Number(m[1])
-      if (!thumbs.has(page)) thumbs.set(page, JSON.parse(`"${m[2]}"`))
-    }
-
-    const total = Math.max(ids.size, thumbs.size)
-    return Array.from({ length: total }, (_, i) => ({ page: i + 1, thumb: thumbs.get(i + 1) ?? null }))
+    // Canva raises the document version on every saved change.
+    const version = html.match(new RegExp(`"A":"${DESIGN_ID}","B":(\\d+)`))?.[1] ?? ''
+    const pages = Array.from({ length: ids.size }, (_, i) => ({ page: i + 1 }))
+    return { pages, version }
   } catch {
-    return []
+    return { pages: [], version: '' }
   }
 }
 
 export default async function CanvaPage() {
-  const pages = await readPages()
-  return <CanvaViewer design={DESIGN} pages={pages} startPage={START_PAGE} />
+  const { pages, version } = await readDeck()
+  return <CanvaViewer design={DESIGN} pages={pages} version={version} startPage={START_PAGE} />
 }
