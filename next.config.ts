@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   basePath: '/dso',
+  // Pin the project root: a second package-lock.json in the parent folder confuses the root detection.
+  turbopack: { root: __dirname },
   outputFileTracingIncludes: {
     "/api/pdf": ["./content/docs/**/*"],
   },
