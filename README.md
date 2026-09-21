@@ -145,6 +145,7 @@ To hide an image without deleting it, wrap the line in an MDX comment:
 | `<PlatformDiagram focus="all" />` | The platform diagram. `focus` is `all`, `future`, `now` or `past` and highlights that section. |
 | `<Callout type="note" title="...">` | A highlighted note. Types: `note`, `warning`, `tip`, `admin`. |
 | `<StepList>` with `<Step number={1}>` | A numbered procedure in a bordered list. |
+| `<DocVideo src="..." caption="..." />` | A looping, muted video with a caption. Files go in `public/videos/docs/`, unchanged from the source. |
 | Markdown tables | Rendered and styled automatically. |
 
 Two MDX rules prevent build errors:
