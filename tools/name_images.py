@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Compress and rename screenshots dropped in raw-images/ into private/images/docs/.
 
-Naming: "<Persona> - LOD <n> - <Topic>.png" becomes
-"<chapter>-<persona>-lod<n>-<topic-slug>.jpg". For example
-"ENV - LOD 3 - Monitoring Assets.png" -> "05-env-lod3-monitoring-assets.jpg".
+DSO naming: "LOD <n> - <State> - <Topic>.png" becomes
+"<chapter>-<state>-lod<n>-<topic-slug>.jpg". The state (Now, Past, Future) sets
+the chapter. LOD 1 and LOD 2 screens go to the Interface chapter. A screen whose
+last part is "Form" goes to the Enquiry chapter.
+
+  "LOD 3 - Now - Leased.png"                   -> "03-now-lod3-leased.jpg"
+  "LOD 3 - Future - District IO - 1A - Form.png" -> "06-future-lod3-district-io-1a-form.jpg"
+  "LOD 2 - DSO 1.png"                          -> "02-lod2-dso-1.jpg"
 
 Run from the repo root:  python3 tools/name_images.py
 Re-running is safe: a file is skipped when its output already exists and is
@@ -13,34 +18,38 @@ from pathlib import Path
 import re, sys
 from PIL import Image
 
-CH = {"GXM": "03", "OPS": "04", "ENV": "05", "MO": "06"}
+STATE_CH = {"now": "03", "past": "04", "future": "05"}
+LOD_ONLY_CH = "02"
+FORM_CH = "06"
 SRC = Path("raw-images")
 DST = Path("private/images/docs")
 MAX_EDGE = 1920
 QUALITY = 65
 
 
-def parse(stem):
+def slug(text):
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def out_name(stem):
     parts = [p.strip() for p in stem.split(" - ")]
-    persona = parts[0].upper()
-    lod = ""
-    topic = []
-    for p in parts[1:]:
-        m = re.match(r"lod\s*([0-9]+)", p, re.I)
-        if m and not lod:
-            lod = m.group(1)
-        else:
-            topic.append(p)
-    slug = re.sub(r"[^a-z0-9]+", "-", "-".join(topic).lower()).strip("-")
-    return persona, lod, slug
-
-
-def out_name(persona, lod, slug):
-    seg = [CH[persona], persona.lower()]
-    if lod:
-        seg.append("lod" + lod)
-    if slug:
-        seg.append(slug)
+    m = re.match(r"lod\s*([0-9]+)", parts[0], re.I)
+    if not m:
+        return None
+    lod = m.group(1)
+    rest = parts[1:]
+    state = rest[0].lower() if rest and rest[0].lower() in STATE_CH else ""
+    topic = rest[1:] if state else rest
+    if topic and topic[-1].lower() == "form":
+        ch = FORM_CH
+    elif state:
+        ch = STATE_CH[state]
+    else:
+        ch = LOD_ONLY_CH
+    seg = [ch] + ([state] if state else []) + ["lod" + lod]
+    s = slug("-".join(topic))
+    if s:
+        seg.append(s)
     return "-".join(seg) + ".jpg"
 
 
@@ -51,12 +60,12 @@ def main():
     DST.mkdir(parents=True, exist_ok=True)
     made = skipped = unknown = 0
     for src in sorted(SRC.glob("*.png")):
-        persona, lod, slug = parse(src.stem)
-        if persona not in CH:
-            print("skip (unknown persona):", src.name)
+        name = out_name(src.stem)
+        if not name:
+            print("skip (name does not start with LOD n):", src.name)
             unknown += 1
             continue
-        dst = DST / out_name(persona, lod, slug)
+        dst = DST / name
         if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime:
             print("up to date:", dst.name)
             skipped += 1
