@@ -25,7 +25,7 @@ const STATES: StateDef[] = [
     data: 'Concept design report, projected',
     tasks: [
       { label: 'Explore District IO', slug: '04-explore-district-io' },
-      { label: 'Compare the phases', slug: '05-compare-the-phases' },
+      { label: 'Step through the delivery years', slug: '05-step-through-the-delivery-years' },
       { label: 'Drill down to a building', slug: '06-drill-down-to-a-building' },
       { label: 'Enquire off-plan', slug: '07-enquire-off-plan' },
     ],
