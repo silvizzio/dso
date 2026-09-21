@@ -24,8 +24,9 @@ const heroBg = (slug: string) => {
 
 // Section card covers. A chapter without an entry falls back to its first image.
 const COVERS: Record<string, string> = {
-  '02-interface-guide': '04-now-lod3-overview.jpg',
-  '13-check-the-delivery-record': '05-past-lod3-2020.jpg',
+  '02-interface-guide': '02-lod2-dso-1.jpg',
+  '04-explore-district-io': '03-future-lod3-district-io-1a.jpg',
+  '16-check-the-delivery-record': '05-past-lod3-2020.jpg',
 }
 const cover = (slug: string) => {
   if (COVERS[slug]) return `url('${IMG}${COVERS[slug]}')`
@@ -50,8 +51,8 @@ export default function Home() {
   const all = Object.values(docsBySection).flat()
   const pick = (slugs: string[]) => slugs.map(s => all.find(d => d.slug === s)).filter((d): d is NonNullable<typeof d> => Boolean(d))
 
-  const heroDocs = pick(['01-overview', '03-explore-district-io'])
-  const quickDocs = pick(['01-overview', '02-interface-guide', '14-reference'])
+  const heroDocs = pick(['01-overview', '03-future-overview'])
+  const quickDocs = pick(['01-overview', '02-interface-guide', '17-reference'])
   const sections = Object.entries(docsBySection)
     .filter(([title]) => title in SECTION_DESC)
     .map(([title, docs]) => ({

@@ -7,11 +7,15 @@ description: The five regions of the screen, the three levels of detail, and wha
 
 A kiosk visitor has no training and little time. They walk up, touch the screen, and must find what they want in seconds. The screen still has to hold a whole district, with its buildings, figures, media and forms.
 
-So how does the screen stay simple? It follows three rules. The map fills the screen and is always the main object. You choose on the left and read on the right. And the amount of detail grows only as you zoom in, so the first view is calm and the closest view is complete.
+The screen stays simple by following three rules:
+
+1. **The map is always the main object.** It fills the screen, and the panels sit at the edges.
+2. **You choose on the left and read on the right.** Selecting something on the left or on the map updates the right panel.
+3. **Detail grows as you zoom in.** The first view is calm, and the closest view is complete.
 
 ## The map has three levels of detail
 
-The kiosk uses zoom levels to control how much it tells you at once. Wide views give the big picture in a few figures. Close views give full detail with panels. This keeps the screen readable when you first walk up, and rich once you have chosen where to look.
+The kiosk uses zoom levels to control how much it tells you at once. LOD stands for level of detail, a term from 3D mapping, where a model shows more detail the closer you get.
 
 | Level | What you see | Panels |
 |---|---|---|
@@ -19,27 +23,28 @@ The kiosk uses zoom levels to control how much it tells you at once. Wide views 
 | LOD 2 | The district core around District IO | District figures along the bottom |
 | LOD 3 | A tilted 3D view of the selected area | Left panel, right panel and map controls |
 
-LOD stands for level of detail. The term comes from 3D mapping, where a model shows more detail the closer you get.
-
 ## LOD 1 and LOD 2 show the district at a glance
 
 At the two wide levels there are no side panels. The area markers sit on the map, and the district figures sit in one band along the bottom.
 
 ![LOD 1: homes planned, available units, EV chargers, solar output, transport stops, cycling track and parking](/dso/api/img/02-lod1.jpg)
 
-The figures answer the first questions most visitors have about any district: can people live here, can I find space, how do I get here, and where do I park. Each figure has a row of small icons under it, so the band reads from a few metres away.
+The figures answer the first questions most visitors have about a district:
 
-| Figure | What it means |
-|---|---|
-| Homes planned | Homes in District IO, from the concept report |
-| Available units | Units you can lease today across the built properties |
-| EV chargers | Public EV charging points in the district |
-| Solar now | Current output of the district solar panels |
-| Transport stops | Bus stops in the district |
-| Cycling track | Length of the jogging and bicycle track |
-| Parking | Parking spaces in the district |
+- **Can people live here?**
+  - Homes planned: the homes in District IO, from the concept report.
+- **Can I find space?**
+  - Available units: units you can lease today across the built properties.
+- **How do I get here?**
+  - Transport stops: bus stops in the district.
+  - Cycling track: length of the jogging and bicycle track.
+  - EV chargers: public charging points in the district.
+- **Where do I park?**
+  - Parking: parking spaces in the district.
+- **How green is it?**
+  - Solar now: current output of the district solar panels.
 
-Some of these figures come from DSO drawings, and some are indicative until DSO connects its data. The Reference chapter shows the status of each one.
+Each figure has a row of small icons under it, so the band reads from a few metres away. Some figures come from DSO drawings, and some are indicative until DSO connects its data. The [Reference](/dso/docs/17-reference) shows the status of each one.
 
 ![LOD 2: the district core, with District IO at the centre](/dso/api/img/02-lod2-dso-1.jpg)
 
@@ -53,27 +58,44 @@ At the closest level the full interface opens.
 
 | Region | What it does |
 |---|---|
-| Header | DSO logo, compass heading, environment readings (wind, sea level, air temperature, air quality), date and time, user menu |
+| Header | DSO logo, compass heading, environment readings, date and time, user menu |
 | Left panel | Controls what the map shows |
 | Map | The 3D district. Markers show areas of interest. The selected building has a glowing outline. |
 | Map controls | Timeline shortcut, basemap switch, drop pin, zoom |
 | Right panel | Explains what you selected, and holds the actions |
 
-The regions follow one rule: the left side is for choosing, and the right side is for reading. When you select something on the left or on the map, the right panel updates. The right panel only changes the screen through its actions at the bottom, such as Enquire or View interior.
+The header readings are wind, sea level, air temperature and air quality.
 
 ## The left panel controls what you see
 
-| Control | What it does |
-|---|---|
-| Exploration mode | Free, Business or Research. Business puts investment and leasing first. Research puts labs and innovation sites first. Free shows everything. |
-| Timeline | Sets Future, Now or Past. Future is the default. Use the arrows or the year steps. |
-| Areas of interest | Selects an area. The map flies to it and the right panel shows its details. |
-| Assets | Shows asset types on the map: office, residential, commercial, education, retail, mobility, industrial and utilities. |
-| Innovations | Shows innovation sites on the map, for example labs. |
+### Exploration mode
 
-Exploration mode is a shortcut for different visitors. An investor and a research lead look for different things, so each mode changes what the kiosk puts first. Assets and Innovations are map filters: turn one on to see where that type of place is in the district, and turn it off to clear the map.
+Each mode changes what the kiosk puts first, for a different kind of visitor:
 
-When you open an area, the left panel changes to the list of items inside it, with a Back link at the top. This is how you go from District IO to a phase, and from a phase to a building.
+- **Free** shows everything.
+- **Business** puts investment and leasing first.
+- **Research** puts labs and innovation sites first.
+
+### Timeline
+
+The timeline sets which version of the district you see:
+
+- **Future**, the default: District IO and its phases.
+- **Now**: the built district today.
+- **Past**: the district in an earlier year.
+
+Use the arrows or the year steps to move between years.
+
+### Areas of interest
+
+Select an area and the map flies to it, and the right panel shows its details. When you open an area, the left panel changes to the list of items inside it, with a Back link at the top. This is how you go from District IO to a phase, and from a phase to a building.
+
+### Assets and Innovations
+
+These are map filters. Turn one on to see where that type of place is in the district, and turn it off to clear the map.
+
+- **Assets**: office, residential, commercial, education, retail, mobility, industrial and utilities.
+- **Innovations**: innovation sites, for example labs.
 
 ## The right panel explains what you selected
 
@@ -86,22 +108,28 @@ The right panel always follows the same order, top to bottom. A visitor who has 
 5. Media: videos, and CCTV in Now
 6. Actions: Enquire, Building Info, View interior
 
-Enquire opens a short form: full name, company name, email, phone number, and an optional message. The form carries the property you selected, so the DSO commercial team knows what you looked at. To continue on your phone, scan the QR code in the left panel.
+### The Enquire form
+
+Enquire opens a short form. It carries the property you selected, so the DSO commercial team knows what you looked at. It asks for:
+
+- Full name
+- Company name
+- Email
+- Phone number
+- Message (optional)
+
+To continue on your phone, scan the QR code in the left panel.
 
 ## Map controls change the view
 
-| Control | What it does |
-|---|---|
-| Timeline shortcut | Opens the timeline |
-| Basemap switch | Changes between satellite and street map |
-| Drop pin | Drag it to a street to open the street view |
-| Zoom | Moves in and out |
-
-The drop pin is the way into street view. Drag it from the controls to any lit street on the map, and the view drops to eye level at that point.
+- **Timeline shortcut** opens the timeline.
+- **Basemap switch** changes between satellite and street map.
+- **Drop pin** opens street view: drag it to any lit street, and the view drops to eye level at that point.
+- **Zoom** moves in and out.
 
 ## Status labels tell you what you can act on
 
-Every area and space carries one label. The label tells you two things at once: whether the space exists, and whether you can take it.
+Every area and space carries one label. It tells you two things at once: whether the space exists, and whether you can take it.
 
 | Label | Meaning | What you can do |
 |---|---|---|
