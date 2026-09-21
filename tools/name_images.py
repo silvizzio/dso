@@ -3,11 +3,11 @@
 
 DSO naming: "LOD <n> - <State> - <Topic>.png" becomes
 "<chapter>-<state>-lod<n>-<topic-slug>.jpg". The state (Now, Past, Future) sets
-the chapter (Future 04, Now 05, Past 06). LOD 1 and LOD 2 screens go to the
+the chapter (Future 03, Now 04, Past 05). LOD 1 and LOD 2 screens go to the
 Interface chapter (02).
 
-  "LOD 3 - Now - Leased.png"                   -> "05-now-lod3-leased.jpg"
-  "LOD 3 - Future - District IO - 1A - Form.png" -> "04-future-lod3-district-io-1a-form.jpg"
+  "LOD 3 - Now - Leased.png"                   -> "04-now-lod3-leased.jpg"
+  "LOD 3 - Future - District IO - 1A - Form.png" -> "03-future-lod3-district-io-1a-form.jpg"
   "LOD 2 - DSO 1.png"                          -> "02-lod2-dso-1.jpg"
 
 Run from the repo root:  python3 tools/name_images.py
@@ -18,7 +18,7 @@ from pathlib import Path
 import re, sys
 from PIL import Image
 
-STATE_CH = {"future": "04", "now": "05", "past": "06"}
+STATE_CH = {"future": "03", "now": "04", "past": "05"}
 LOD_ONLY_CH = "02"
 SRC = Path("raw-images")
 DST = Path("private/images/docs")

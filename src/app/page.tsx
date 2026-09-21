@@ -5,7 +5,8 @@ import { getDocsBySection } from '@/lib/docs'
 
 // Layout and styles are the template's. Only content changes per project.
 // Sections and chapters come from content/docs, the same source as the sidebar.
-// Covers: the real screen for each chapter. Grey placeholder when none is set.
+// Hero cards keep the grey placeholder until cover art made for text is ready.
+// Section cards use the real screen for each chapter.
 const PLACEHOLDER = 'linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%)'
 const IMG = '/dso/api/img/'
 const COVERS: Record<string, string> = {
@@ -14,15 +15,17 @@ const COVERS: Record<string, string> = {
   '03-future': '03-future-lod3-district-io.jpg',
   '04-now': '04-now-lod3-available-technohub-4.jpg',
   '05-past': '05-past-lod3-2020.jpg',
-  '06-reference': '02-lod2-dso-1.jpg',
 }
 const cover = (slug: string) => (COVERS[slug] ? `url('${IMG}${COVERS[slug]}')` : PLACEHOLDER)
 
+// Sections shown under Browse by section. Reference is linked from the start box instead.
 const SECTION_DESC: Record<string, string> = {
   'Getting Started': 'What the kiosk shows, what District IO offers, and how to use the screen.',
   'Explore the District': 'What is coming, what exists today, and how the district grew. Each state shows different data.',
-  'Reference': 'Terms, area measures, data sources and open items.',
 }
+
+// DSO brand primary (dso.ae). District IO brand blue (districtio.com) is #006fff.
+const DSO_INK = '#194167'
 
 export default function Home() {
   const searchDocs = getSearchIndex()
@@ -31,12 +34,14 @@ export default function Home() {
   const pick = (slugs: string[]) => slugs.map(s => all.find(d => d.slug === s)).filter((d): d is NonNullable<typeof d> => Boolean(d))
 
   const heroDocs = pick(['01-overview', '03-future'])
-  const quickDocs = pick(['01-overview', '03-future', '04-now'])
-  const sections = Object.entries(docsBySection).map(([title, docs]) => ({
-    title,
-    desc: SECTION_DESC[title] ?? '',
-    links: docs.map(d => ({ label: d.title, desc: d.description ?? '', href: `/docs/${d.slug}`, slug: d.slug })),
-  }))
+  const quickDocs = pick(['01-overview', '02-interface-guide', '06-reference'])
+  const sections = Object.entries(docsBySection)
+    .filter(([title]) => title in SECTION_DESC)
+    .map(([title, docs]) => ({
+      title,
+      desc: SECTION_DESC[title],
+      links: docs.map(d => ({ label: d.title, desc: d.description ?? '', href: `/docs/${d.slug}`, slug: d.slug })),
+    }))
 
   return (
     <div style={{ minHeight: '100vh', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))', display: 'flex', flexDirection: 'column', paddingTop: '48px' }}>
@@ -53,7 +58,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14">
           {heroDocs.map(doc => (
-            <Link key={doc.slug} href={`/docs/${doc.slug}`} className="group block rounded-lg border border-border overflow-hidden transition-colors" style={{ position: 'relative', minHeight: '180px', backgroundImage: cover(doc.slug), backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <Link key={doc.slug} href={`/docs/${doc.slug}`} className="group block rounded-lg border border-border overflow-hidden transition-colors" style={{ position: 'relative', minHeight: '180px', backgroundImage: PLACEHOLDER, backgroundSize: 'cover', backgroundPosition: 'center' }}>
               <div style={{ position: 'absolute', top: '14px', right: '14px' }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--muted-foreground))" strokeWidth="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </div>
@@ -65,15 +70,15 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mb-8 p-4 sm:p-6 rounded-lg flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-8" style={{ background: '#ECE3D5', border: '1px solid hsl(var(--border))' }}>
+        <div className="mb-8 p-4 sm:p-6 rounded-lg flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-8" style={{ background: DSO_INK, border: `1px solid ${DSO_INK}` }}>
           <div>
-            <p className="text-xs uppercase tracking-wide mb-2" style={{ color: 'hsl(var(--muted-foreground))' }}>Getting started</p>
-            <h2 className="text-base font-medium mb-1" style={{ color: 'hsl(var(--foreground))' }}>New to the project?</h2>
-            <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--muted-foreground))' }}>Start with the overview, then see District IO in Future and what is available Now.</p>
+            <p className="text-xs uppercase tracking-wide mb-2" style={{ color: 'rgba(255,255,255,0.6)' }}>Getting started</p>
+            <h2 className="text-base font-medium mb-1" style={{ color: '#ffffff' }}>New to the project?</h2>
+            <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Start with the overview, then read the interface guide. Terms and data sources are in the reference.</p>
           </div>
           <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '8px' }}>
             {quickDocs.map(doc => (
-              <Link key={doc.slug} href={`/docs/${doc.slug}`} className="inline-flex items-center gap-1.5 text-xs rounded-md px-3 py-1.5" style={{ background: 'transparent', color: 'hsl(var(--foreground))', border: '1px solid hsl(var(--border))', whiteSpace: 'nowrap' }}>
+              <Link key={doc.slug} href={`/docs/${doc.slug}`} className="inline-flex items-center gap-1.5 text-xs rounded-md px-3 py-1.5" style={{ background: 'transparent', color: '#ffffff', border: '1px solid rgba(255,255,255,0.32)', whiteSpace: 'nowrap' }}>
                 {doc.title}
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </Link>
