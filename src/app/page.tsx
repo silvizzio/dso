@@ -5,16 +5,9 @@ import { getDocsBySection, getDoc } from '@/lib/docs'
 
 // Layout and styles are the template's. Only content changes per project.
 // Sections and chapters come from content/docs, the same source as the sidebar.
-// Section cards use the real screen for each chapter.
 const PLACEHOLDER = 'linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%)'
 const IMG = '/dso/api/img/'
-const COVERS: Record<string, string> = {
-  '01-overview': '02-lod1.jpg',
-  '02-interface-guide': '04-now-lod3-overview.jpg',
-  '03-future': '03-future-lod3-district-io.jpg',
-  '04-now': '04-now-lod3-available-technohub-4.jpg',
-  '05-past': '05-past-lod3-2020.jpg',
-}
+
 // Hero cards use the first image of each chapter, read from its MDX file.
 // HERO_FADE puts a white fade behind the card text so it stays readable.
 const HERO_FADE = true
@@ -28,12 +21,24 @@ const heroBg = (slug: string) => {
   const fade = 'linear-gradient(to top, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.88) 36%, rgba(255,255,255,0) 72%), '
   return `${HERO_FADE ? fade : ''}url('${src}')`
 }
-const cover = (slug: string) => (COVERS[slug] ? `url('${IMG}${COVERS[slug]}')` : PLACEHOLDER)
+
+// Section card covers. A chapter without an entry falls back to its first image.
+const COVERS: Record<string, string> = {
+  '02-interface-guide': '04-now-lod3-overview.jpg',
+  '13-check-the-delivery-record': '05-past-lod3-2020.jpg',
+}
+const cover = (slug: string) => {
+  if (COVERS[slug]) return `url('${IMG}${COVERS[slug]}')`
+  const src = firstImage(slug)
+  return src ? `url('${src}')` : PLACEHOLDER
+}
 
 // Sections shown under Browse by section. Reference is linked from the start box instead.
 const SECTION_DESC: Record<string, string> = {
   'Getting Started': 'What the kiosk shows, what District IO offers, and how to use the screen.',
-  'Explore the District': 'What is coming, what exists today, and how the district grew. Each state shows different data.',
+  'Future': 'District IO before it is built: what it offers, its phases, its buildings, and how to enquire.',
+  'Now': 'What exists today: space to lease, building performance, leased buildings, live media and tours.',
+  'Past': 'How the district grew, and the record of what DSO has delivered.',
 }
 
 // DSO brand primary (dso.ae). District IO brand blue (districtio.com) is #006fff.
@@ -45,8 +50,8 @@ export default function Home() {
   const all = Object.values(docsBySection).flat()
   const pick = (slugs: string[]) => slugs.map(s => all.find(d => d.slug === s)).filter((d): d is NonNullable<typeof d> => Boolean(d))
 
-  const heroDocs = pick(['01-overview', '03-future'])
-  const quickDocs = pick(['01-overview', '02-interface-guide', '06-reference'])
+  const heroDocs = pick(['01-overview', '03-explore-district-io'])
+  const quickDocs = pick(['01-overview', '02-interface-guide', '14-reference'])
   const sections = Object.entries(docsBySection)
     .filter(([title]) => title in SECTION_DESC)
     .map(([title, docs]) => ({

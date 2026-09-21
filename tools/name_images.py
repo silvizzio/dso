@@ -3,7 +3,7 @@
 
 DSO naming: "LOD <n> - <State> - <Topic>.png" becomes
 "<chapter>-<state>-lod<n>-<topic-slug>.jpg". The state (Now, Past, Future) sets
-the chapter (Future 03, Now 04, Past 05). LOD 1 and LOD 2 screens go to the
+the timeline section prefix (Future 03, Now 04, Past 05). LOD 1 and LOD 2 screens go to the
 Interface chapter (02).
 
   "LOD 3 - Now - Leased.png"                   -> "04-now-lod3-leased.jpg"
