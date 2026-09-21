@@ -10,6 +10,7 @@ export type DocMeta = {
   section: string
   order: number
   role?: string
+  description?: string
 }
 
 export type Doc = DocMeta & {
@@ -30,6 +31,7 @@ export function getAllDocs(): DocMeta[] {
         section: data.section ?? 'General',
         order: data.order ?? 99,
         role: data.role,
+        description: data.description,
       }
     })
     .sort((a, b) => a.order - b.order)
@@ -48,6 +50,7 @@ export function getDoc(slug: string): Doc | null {
     section: data.section ?? 'General',
     order: data.order ?? 99,
     role: data.role,
+    description: data.description,
     content,
   }
 }
