@@ -10,6 +10,10 @@ type StateDef = { key: State; label: string; badge?: string; question: string; c
 
 const DOCS = '/dso/docs/'
 const DSO_NAVY = '#194167'
+const PANEL_BG = '#EEF4FB'
+const PANEL_BORDER = '#D6E4F3'
+const PANEL_LINE = '#B9CDE3'
+const PANEL_LABEL = '#4A6A8F'
 
 const STATES: StateDef[] = [
   {
@@ -67,9 +71,9 @@ const bg = 'hsl(var(--background))'
 function Connector({ label }: { label: string }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '6px 0' }}>
-      <div style={{ width: '1px', height: '12px', background: border }} />
+      <div style={{ width: '1px', height: '12px', background: PANEL_LINE }} />
       <span style={{ fontSize: '10px', letterSpacing: '0.06em', textTransform: 'uppercase', color: muted, padding: '4px 0' }}>{label}</span>
-      <div style={{ width: '1px', height: '12px', background: border }} />
+      <div style={{ width: '1px', height: '12px', background: PANEL_LINE }} />
       <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke={muted} strokeWidth="1.2" /></svg>
     </div>
   )
@@ -93,7 +97,7 @@ function StateCard({ s, focus }: { s: StateDef; focus: Focus }) {
   const card = {
     border: `1px solid ${hi ? s.color : border}`,
     boxShadow: hi ? `0 0 0 3px ${s.color}1f` : 'none',
-    background: hi ? `${s.color}0a` : bg,
+    background: '#ffffff',
     borderRadius: '10px',
     padding: '14px',
     opacity: on ? 1 : 0.45,
@@ -128,7 +132,8 @@ export function PlatformDiagram({ focus = 'all' }: { focus?: Focus }) {
     : 'How the platform fits together: one 3D map, three timeline states, one action. Each task links to its chapter.'
 
   return (
-    <figure className="not-prose" style={{ margin: '28px 0 36px', fontFamily: 'Inter, sans-serif' }}>
+    <figure className="not-prose" style={{ margin: '28px 0 36px', fontFamily: 'Inter, sans-serif', background: PANEL_BG, border: `1px solid ${PANEL_BORDER}`, borderRadius: '14px', padding: '18px 18px 14px' }}>
+      <p style={{ fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: PANEL_LABEL, margin: '0 0 12px' }}>How the platform works</p>
       <div style={{ background: DSO_NAVY, borderRadius: '10px', padding: '16px 18px', color: '#ffffff' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', justifyContent: 'space-between', gap: '8px', marginBottom: '12px' }}>
           <div>
@@ -155,7 +160,7 @@ export function PlatformDiagram({ focus = 'all' }: { focus?: Focus }) {
 
       <Connector label="Every state ends in one action" />
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '10px', border: `1px solid ${DSO_NAVY}`, borderRadius: '10px', padding: '12px 16px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '10px', border: `1px solid ${DSO_NAVY}`, borderRadius: '10px', padding: '12px 16px', background: '#ffffff' }}>
         <span style={{ fontSize: '13px', fontWeight: 600, color: DSO_NAVY }}>Enquire</span>
         <svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><path d="M0 5h25M21 1l4 4-4 4" fill="none" stroke={DSO_NAVY} strokeWidth="1.2" /></svg>
         <span style={{ fontSize: '13px', color: fg }}>DSO commercial team</span>
