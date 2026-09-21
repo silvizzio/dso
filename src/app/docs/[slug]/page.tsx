@@ -19,6 +19,7 @@ import {
   CoreWorkflowDiagram,
 } from '@/components/mdx-components'
 import { DocImage } from '@/components/doc-image'
+import { PlatformDiagram } from '@/components/platform-diagram'
 import { SystemMap } from '@/components/system-map'
 import { SimState, SimSources, SimGrid } from '@/components/sim-flow'
 
@@ -52,6 +53,7 @@ export default async function DocPage({
     SimState,
     SimSources,
     SimGrid,
+    PlatformDiagram,
         img: DocImage,
   }
 
