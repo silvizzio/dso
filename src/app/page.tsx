@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import DocHeader from '@/components/doc-header'
 import { getSearchIndex } from '@/lib/search'
-import { getDocsBySection } from '@/lib/docs'
+import { getDocsBySection, getDoc } from '@/lib/docs'
 
 // Layout and styles are the template's. Only content changes per project.
 // Sections and chapters come from content/docs, the same source as the sidebar.
-// Hero cards keep the grey placeholder until cover art made for text is ready.
 // Section cards use the real screen for each chapter.
 const PLACEHOLDER = 'linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%)'
 const IMG = '/dso/api/img/'
@@ -15,6 +14,19 @@ const COVERS: Record<string, string> = {
   '03-future': '03-future-lod3-district-io.jpg',
   '04-now': '04-now-lod3-available-technohub-4.jpg',
   '05-past': '05-past-lod3-2020.jpg',
+}
+// Hero cards use the first image of each chapter, read from its MDX file.
+// HERO_FADE puts a white fade behind the card text so it stays readable.
+const HERO_FADE = true
+const firstImage = (slug: string) => {
+  const m = getDoc(slug)?.content.match(/!\[[^\]]*\]\(([^)]+)\)/)
+  return m ? m[1] : null
+}
+const heroBg = (slug: string) => {
+  const src = firstImage(slug)
+  if (!src) return PLACEHOLDER
+  const fade = 'linear-gradient(to top, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.88) 36%, rgba(255,255,255,0) 72%), '
+  return `${HERO_FADE ? fade : ''}url('${src}')`
 }
 const cover = (slug: string) => (COVERS[slug] ? `url('${IMG}${COVERS[slug]}')` : PLACEHOLDER)
 
@@ -58,7 +70,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14">
           {heroDocs.map(doc => (
-            <Link key={doc.slug} href={`/docs/${doc.slug}`} className="group block rounded-lg border border-border overflow-hidden transition-colors" style={{ position: 'relative', minHeight: '180px', backgroundImage: PLACEHOLDER, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <Link key={doc.slug} href={`/docs/${doc.slug}`} className="group block rounded-lg border border-border overflow-hidden transition-colors" style={{ position: 'relative', minHeight: '180px', backgroundImage: heroBg(doc.slug), backgroundSize: 'cover', backgroundPosition: 'center' }}>
               <div style={{ position: 'absolute', top: '14px', right: '14px' }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--muted-foreground))" strokeWidth="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </div>
