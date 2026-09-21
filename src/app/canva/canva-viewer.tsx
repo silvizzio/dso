@@ -5,12 +5,13 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 // Our page drives the navigation. Canva only displays the slide.
 // A transparent layer over the deck takes every click, so Canva's own controls
 // cannot move the deck without our counter knowing.
-// FORCE_RELOAD: set to true if the deck does not move when the page number changes.
+// FORCE_RELOAD: reloads the deck at the chosen page, so Canva always draws the slide.
+// Set it to false for faster jumps if the slides render without it.
 // Keep every closing ">" on the same line as the last attribute.
-const FORCE_RELOAD = false
+const FORCE_RELOAD = true
 const DSO_NAVY = '#194167'
 
-export type DeckPage = { page: number; thumb: string }
+export type DeckPage = { page: number; thumb: string | null }
 
 export default function CanvaViewer({ design, pages, startPage }: { design: string; pages: DeckPage[]; startPage: number }) {
   const total = pages.length
@@ -63,7 +64,7 @@ export default function CanvaViewer({ design, pages, startPage }: { design: stri
             style={{ position: 'absolute', inset: 0, cursor: 'pointer', background: 'transparent' }} />
         ) : null}
         {hasStrip ? (
-          <div aria-live="polite" style={{ position: 'absolute', left: '50%', bottom: '16px', transform: 'translateX(-50%)', pointerEvents: 'none', background: 'rgba(17,18,19,0.78)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.18)', borderRadius: '999px', padding: '6px 14px', fontSize: '13px', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.02em' }}>
+          <div aria-live="polite" style={{ position: 'absolute', left: '50%', top: '16px', transform: 'translateX(-50%)', pointerEvents: 'none', background: 'rgba(17,18,19,0.78)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.18)', borderRadius: '999px', padding: '6px 14px', fontSize: '13px', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.02em' }}>
             {page} / {total}
           </div>
         ) : null}
@@ -90,7 +91,7 @@ export default function CanvaViewer({ design, pages, startPage }: { design: stri
                 aria-label={`Page ${p.page}`}
                 aria-current={p.page === page ? 'page' : undefined}
                 style={{ flex: '0 0 auto', width: '128px', padding: 0, border: `2px solid ${p.page === page ? '#ffffff' : 'transparent'}`, borderRadius: '6px', background: 'transparent', cursor: 'pointer', position: 'relative', opacity: p.page === page ? 1 : 0.6 }}>
-                <img src={p.thumb} alt="" width={128} height={72} loading="lazy" style={{ display: 'block', width: '100%', height: 'auto', borderRadius: '4px' }} />
+                {p.thumb ? <img src={p.thumb} alt="" width={128} height={72} loading="lazy" style={{ display: 'block', width: '100%', height: 'auto', borderRadius: '4px' }} /> : <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', aspectRatio: '16 / 9', borderRadius: '4px', background: '#1c1e21', color: 'rgba(255,255,255,0.55)', fontSize: '18px', fontVariantNumeric: 'tabular-nums' }}>{p.page}</span>}
                 <span style={{ position: 'absolute', left: '4px', bottom: '4px', fontSize: '10px', lineHeight: 1, padding: '3px 5px', borderRadius: '3px', background: p.page === page ? DSO_NAVY : 'rgba(0,0,0,0.6)', color: '#ffffff' }}>{p.page}</span>
               </button>
             ))}
