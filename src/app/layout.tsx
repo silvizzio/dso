@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   metadataBase: new URL('https://dso.vercel.app'),
   title: 'Dubai Silicon Oasis (DSO)',
-  description: 'Guide to the DSO Digital Twin kiosk: District IO, available property at Dubai Silicon Oasis, and how to enquire.',
+  description: 'Guide to the DSO Digital Twin: District IO, available property at Dubai Silicon Oasis, and how to enquire.',
 }
 
 export default function RootLayout({

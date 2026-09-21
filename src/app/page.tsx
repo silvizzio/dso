@@ -36,7 +36,7 @@ const cover = (slug: string) => {
 
 // Sections shown under Browse by section. Reference is linked from the start box instead.
 const SECTION_DESC: Record<string, string> = {
-  'Getting Started': 'What the kiosk shows, what District IO offers, and how to use the screen.',
+  'Getting Started': 'What the platform shows, what District IO offers, and how to use the screen.',
   'Future': 'District IO before it is built: what it offers, its phases, its buildings, and how to enquire.',
   'Now': 'What exists today: space to lease, building performance, leased buildings, live media and tours.',
   'Past': 'How the district grew, and the record of what DSO has delivered.',

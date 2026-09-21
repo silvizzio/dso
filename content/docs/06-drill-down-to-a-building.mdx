@@ -2,54 +2,78 @@
 title: Drill Down to a Building
 section: Future
 order: 6
-description: Go from a phase to its sub-phases, its buildings, and the floors of one building.
+description: How a visitor moves from a phase to a single floor without losing context, and why fit is decided at that level.
 ---
 
-From a phase you can go down to a single building and its floors. This is where you judge fit: how big a floor is, what each floor is for, and where the lab floors, the retail and the plant sit. Each step keeps the one before it in view, so you always know where you are.
+A tenant does not lease a complex or a phase.
+They lease floors in a building.
+The questions that decide a lease are specific.
+Is one floor large enough?
+Where are the labs, the shops and the services?
 
-<StepList>
-<Step number={1}>Select a **phase** to see its sub-phases.</Step>
-<Step number={2}>Select a **sub-phase** to see its buildings.</Step>
-<Step number={3}>Select a **building** to see its levels, floor area and use mix.</Step>
-</StepList>
+The drill-down answers those questions on the spot.
+It takes a visitor from a phase to a building to its floors in three taps, while keeping every earlier step visible.
 
-## Open a phase to see its sub-phases
+## Fit is decided at floor level, not complex level
 
-![Phase 1A: sub-phases 1A-1, 1A-2 and 1A-3 on the map, and the phase figures on the right](/dso/api/img/03-future-lod3-district-io-1a.jpg)
+Figures for a whole complex or a whole phase describe scale.
+They do not describe fit.
+A phase can have ample floor area and still contain no building with floors large enough for a given tenant.
 
-Sub-phases group the buildings of a phase by what they contain. Phase 1A has three:
+The drill-down moves the conversation to the level where decisions are made.
+By the time a visitor enquires, they know which building suits them and why.
 
-- **1A-1**: office and techno lab cluster.
-- **1A-2**: second office cluster.
-- **1A-3**: residential blocks and open space.
+## The drill-down keeps context at every level
 
-## Open a sub-phase to see its buildings
+1. Open a phase to see its parts.
+   Each part groups buildings that belong together.
+2. Open a part to see its buildings.
+   - The part is outlined on the map, so its extent is clear.
+   - Each building has a marker with its use and height.
+   - The left panel lists the same buildings, with a Back link at the top.
 
-![Phase 1A-1: Techno Lab Block and Office Tower A on the map](/dso/api/img/03-future-lod3-district-io-1a-1.jpg)
+![a part of a phase opened: its outline on the map and its buildings in the left panel](/dso/api/img/03-future-lod3-district-io-1a-1.jpg)
 
-- The selected sub-phase has a **glowing outline** on the map.
-- Each building has its own **marker** with its use and height.
-- The **left panel** lists the same buildings, so you can select from the map or from the list.
+3. Open a building to see how it is organised.
+   - How many floors it has, and the size of a typical floor.
+   - How its space divides between uses.
+   - What each floor is used for, from the ground floor up.
 
-## Open a building to see its floors
+![a building opened: its floors and the use of each one](/dso/api/img/03-future-lod3-district-io-building-level.jpg)
 
-![Techno Lab Block: levels, building GFA, typical floor plate, use mix, and floor by floor areas](/dso/api/img/03-future-lod3-district-io-building-level.jpg)
+At every step, the map shows where the visitor is and the left panel shows how they got there.
+A visitor can go back one level or return to the whole complex at any time.
 
-This is the level a tenant uses to judge fit.
+## Floor-level data answers a tenant's first questions
 
-| Item | What it tells you |
-|---|---|
-| Levels | Number of floors, for example G+5 |
-| Building GFA | Total floor area of the building |
-| Typical plate | Floor area of a typical floor |
-| Use mix | Share of floor area by use |
-| Floor by floor | Use and area of each floor |
+Two items in the building view carry most of the decision.
 
-Two items answer the most common tenant questions:
+- The **typical floor plate** is the area of one standard floor.
+  It tells a tenant how much space they get if they take a whole floor, which is usually the first test of fit.
+- The floor-by-floor list shows the use of each floor.
+  A lab tenant sees where the lab floors are.
+  A retailer sees which floors face the street.
+  Everyone sees where plant and services sit.
 
-- **Typical floor plate** tells you how much space you get if you take a whole floor.
-- **Floor by floor** tells you where each use sits, so you can see which floors are labs, which are retail and where the plant is.
+Totals cannot answer these questions.
+A building of a given size can suit one tenant and fail another, depending on how its floors are divided.
 
-<Callout type="note" title="Indicative data">
-Sub-phase and building data are indicative. The concept report gives areas by phase, not by building.
-</Callout>
+## The drill-down shortens the path to a specific conversation
+
+For a buyer, fit is judged at the stand, not after a later meeting.
+They leave with a clear view of which building works for them.
+
+For the commercial team, a visitor who has opened a building arrives at the enquiry with a specific interest.
+The first conversation can go straight to terms and timing for that building.
+
+## Three design decisions shape the drill-down
+
+- Context is never lost.
+  Each step keeps the previous one visible, on the map and in the left panel.
+- The typical floor plate comes first, because it answers the most common first question.
+- Floors are shown one by one, not only as a total, because fit depends on how space is divided.
+
+## Next
+
+When a building fits, the visitor can act on it immediately.
+[Enquire Off-Plan](/dso/docs/07-enquire-off-plan) explains how.

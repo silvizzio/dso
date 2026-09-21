@@ -138,7 +138,7 @@ export function PlatformDiagram({ focus = 'all' }: { focus?: Focus }) {
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', justifyContent: 'space-between', gap: '8px', marginBottom: '12px' }}>
           <div>
             <p style={{ fontSize: '14px', fontWeight: 600, margin: 0 }}>DSO Digital Twin</p>
-            <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', margin: '2px 0 0' }}>One 3D map of Dubai Silicon Oasis on a 55 inch touch kiosk</p>
+            <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', margin: '2px 0 0' }}>One 3D map of Dubai Silicon Oasis on a 55 inch touch screen</p>
           </div>
           <span style={{ fontSize: '10px', letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>Levels of detail</span>
         </div>

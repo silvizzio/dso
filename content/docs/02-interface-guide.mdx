@@ -2,139 +2,114 @@
 title: Interface Guide
 section: Getting Started
 order: 2
-description: The five regions of the screen, the three levels of detail, and what each control does.
+description: How the interface serves a first-time visitor with no instructions, and what each part of the screen is for.
 ---
 
-A kiosk visitor has no training and little time. They walk up, touch the screen, and must find what they want in seconds. The screen still has to hold a whole district, with its buildings, figures, media and forms.
+Most visitors meet the Digital Twin standing at an exhibition stand or a sales centre, with no guidance and little time.
+The platform holds a whole district of buildings, data and media.
+Shown all at once, that volume makes a visitor walk away within seconds.
 
-The screen stays simple by following three rules:
+The interface solves this by revealing detail in stages and keeping the same layout at every stage.
+A visitor learns the screen once, in the first minute, and can then go as deep as they want without learning anything new.
 
-1. **The map is always the main object.** It fills the screen, and the panels sit at the edges.
-2. **You choose on the left and read on the right.** Selecting something on the left or on the map updates the right panel.
-3. **Detail grows as you zoom in.** The first view is calm, and the closest view is complete.
+## Three principles govern every screen
 
-## The map has three levels of detail
+1. The map is the product.
+   It fills the screen and stays the main object.
+   Panels sit at the edges and never cover the place the visitor is looking at.
+2. The left side chooses and the right side explains.
+   A visitor decides what to see on the left or on the map.
+   The right panel then explains what they chose.
+3. Detail follows interest.
+   The first view is calm.
+   More detail appears only when the visitor zooms in or selects something.
 
-The kiosk uses zoom levels to control how much it tells you at once. LOD stands for level of detail, a term from 3D mapping, where a model shows more detail the closer you get.
+Each principle removes a question the visitor would otherwise have to answer.
+The first removes "where do I look".
+The second removes "where do I read about this".
+The third removes "which of all this matters to me".
 
-| Level | What you see | Panels |
+## Detail grows across three levels of detail
+
+The map has three levels of detail.
+Each level has one job in the visit, and the visitor moves between them by zooming or by selecting a property.
+
+### The first level attracts a visitor from a distance
+
+![the first level: the whole district and a single band of headline figures](/dso/api/img/02-lod1.jpg)
+
+The first level shows the whole district and one band of headline figures across the bottom.
+It has no panels to learn.
+Each figure has a row of small icons, so the band reads from several steps away.
+Its job is to make a passer-by stop and touch the screen.
+
+### The second level orients the visitor around District IO
+
+![the second level: the district core, with District IO at the centre](/dso/api/img/02-lod2-dso-1.jpg)
+
+The second level moves closer to the district core, where District IO sits among the existing buildings.
+Its job is orientation.
+The visitor sees where the new complex sits, and what surrounds it, before any detail competes for attention.
+
+### The third level opens the full interface
+
+![the third level: left panel, map, map controls and right panel](/dso/api/img/04-now-lod3-overview.jpg)
+
+The third level opens the full interface.
+This is where the visitor explores, compares and acts.
+Every chapter in the Future, Now and Past sections takes place at this level.
+
+## Each region of the screen has one job
+
+| Region | Job | Why it works this way |
 |---|---|---|
-| LOD 1 | The whole district from above | District figures along the bottom |
-| LOD 2 | The district core around District IO | District figures along the bottom |
-| LOD 3 | A tilted 3D view of the selected area | Left panel, right panel and map controls |
+| Left panel | Decides what the map shows | Keeps every choice in one place |
+| Map | Shows the district and what is selected | Keeps the visitor oriented at all times |
+| Right panel | Explains what is selected and holds the actions | Keeps reading and acting in one place |
+| Map controls | Change the view: zoom, basemap, timeline, street view | Keep view changes apart from content |
+| Header | Shows the date, time and live conditions in the district | Signals that the map shows the present, not a recording |
 
-## LOD 1 and LOD 2 show the district at a glance
+The left panel also carries the path back.
+When a visitor opens a property, the panel becomes a list of what is inside it, with a Back link at the top.
+Going deeper never removes the way out, so a visitor never feels trapped in a sub-screen.
 
-At the two wide levels there are no side panels. The area markers sit on the map, and the district figures sit in one band along the bottom.
+The map and the left panel stay in sync.
+Selecting a property on the map highlights it in the list, and selecting it in the list moves the map.
+Visitors who think in places and visitors who think in lists both reach the same result.
 
-![LOD 1: homes planned, available units, EV chargers, solar output, transport stops, cycling track and parking](/dso/api/img/02-lod1.jpg)
+## The right panel always reads in the same order
 
-The figures answer the first questions most visitors have about a district:
+1. Status and name, so the visitor knows what they selected and whether it is available.
+2. Images, so they see it before reading about it.
+3. A short description of what it is and what it is for.
+4. Key figures, for visitors who want the scale.
+5. Media: videos, and live cameras for buildings that exist.
+6. Actions: Enquire, and where available, building data and the interior tour.
 
-- **Can people live here?**
-  - Homes planned: the homes in District IO, from the concept report.
-- **Can I find space?**
-  - Available units: units you can lease today across the built properties.
-- **How do I get here?**
-  - Transport stops: bus stops in the district.
-  - Cycling track: length of the jogging and bicycle track.
-  - EV chargers: public charging points in the district.
-- **Where do I park?**
-  - Parking: parking spaces in the district.
-- **How green is it?**
-  - Solar now: current output of the district solar panels.
+A fixed order turns the right panel into a habit.
+A visitor who has read one panel knows where to look on the next.
+The time from selecting a property to understanding it gets shorter.
 
-Each figure has a row of small icons under it, so the band reads from a few metres away. Some figures come from DSO drawings, and some are indicative until DSO connects its data. The [Reference](/dso/docs/17-reference) shows the status of each one.
+## Status labels tell a visitor what they can do next
 
-![LOD 2: the district core, with District IO at the centre](/dso/api/img/02-lod2-dso-1.jpg)
+Every property and every space carries one **status label**, a one-word summary of whether it exists and whether it can be taken.
 
-LOD 2 moves closer to the district core, where District IO sits between DSO HQ and the lake. It is the bridge between the overview and the full interface.
-
-## LOD 3 has five regions
-
-At the closest level the full interface opens.
-
-![the full LOD 3 layout: left panel, map, map controls and right panel](/dso/api/img/04-now-lod3-overview.jpg)
-
-| Region | What it does |
-|---|---|
-| Header | DSO logo, compass heading, environment readings, date and time, user menu |
-| Left panel | Controls what the map shows |
-| Map | The 3D district. Markers show areas of interest. The selected building has a glowing outline. |
-| Map controls | Timeline shortcut, basemap switch, drop pin, zoom |
-| Right panel | Explains what you selected, and holds the actions |
-
-The header readings are wind, sea level, air temperature and air quality.
-
-## The left panel controls what you see
-
-### Exploration mode
-
-Each mode changes what the kiosk puts first, for a different kind of visitor:
-
-- **Free** shows everything.
-- **Business** puts investment and leasing first.
-- **Research** puts labs and innovation sites first.
-
-### Timeline
-
-The timeline sets which version of the district you see:
-
-- **Future**, the default: District IO and its phases.
-- **Now**: the built district today.
-- **Past**: the district in an earlier year.
-
-Use the arrows or the year steps to move between years.
-
-### Areas of interest
-
-Select an area and the map flies to it, and the right panel shows its details. When you open an area, the left panel changes to the list of items inside it, with a Back link at the top. This is how you go from District IO to a phase, and from a phase to a building.
-
-### Assets and Innovations
-
-These are map filters. Turn one on to see where that type of place is in the district, and turn it off to clear the map.
-
-- **Assets**: office, residential, commercial, education, retail, mobility, industrial and utilities.
-- **Innovations**: innovation sites, for example labs.
-
-## The right panel explains what you selected
-
-The right panel always follows the same order, top to bottom. A visitor who has read one right panel can read them all.
-
-1. Status label and title
-2. Image gallery
-3. Description
-4. Key figures
-5. Media: videos, and CCTV in Now
-6. Actions: Enquire, Building Info, View interior
-
-### The Enquire form
-
-Enquire opens a short form. It carries the property you selected, so the DSO commercial team knows what you looked at. It asks for:
-
-- Full name
-- Company name
-- Email
-- Phone number
-- Message (optional)
-
-To continue on your phone, scan the QR code in the left panel.
-
-## Map controls change the view
-
-- **Timeline shortcut** opens the timeline.
-- **Basemap switch** changes between satellite and street map.
-- **Drop pin** opens street view: drag it to any lit street, and the view drops to eye level at that point.
-- **Zoom** moves in and out.
-
-## Status labels tell you what you can act on
-
-Every area and space carries one label. It tells you two things at once: whether the space exists, and whether you can take it.
-
-| Label | Meaning | What you can do |
+| Label | Meaning | What the visitor can do |
 |---|---|---|
-| Available | Space you can lease now | Enquire, view interior |
-| Under offer | An offer is in progress | Enquire to join the waiting list |
-| Leased | No space is available now | Enquire for future availability |
-| Coming 2030 | Not built. Construction has not started. | Enquire off-plan |
-| Completed | Shown in Past. The year the building was completed. | None |
+| Available | Space that can be leased now | Inspect it, tour the interior and enquire |
+| Under offer | An offer is in progress | Enquire in case the offer does not complete |
+| Leased | No space is free now | Enquire for future availability |
+| Coming | Not built, construction not started | Explore it and enquire off-plan |
+| Completed | Shown in Past, with the year of completion | Read it as part of the delivery record |
+
+The label answers the visitor's first question before they ask it: can I have this?
+It also sets their next step, so the interface never offers an action that does not apply.
+
+## The Enquire action never moves
+
+Enquire sits at the bottom of every right panel and stays on screen during street view and interior tours.
+It is the one action that is available in every timeline state and at every level of detail.
+
+The reason is commercial.
+The value of the platform is lost if a visitor has to search for the way to act at the moment they decide.
+A fixed position means the action is found without thinking.
