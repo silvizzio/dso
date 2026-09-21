@@ -10,7 +10,9 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 // Keep every closing ">" on the same line as the last attribute.
 const FORCE_RELOAD = true
 const DSO_NAVY = '#194167'
-const THUMB_BASE = '/dso/api/canva-thumb'
+const SPRITE_BASE = '/dso/api/canva-sprite'
+// Columns in the sprite. The sprite route uses the same value from the URL.
+const SPRITE_COLS = 7
 
 export type DeckPage = { page: number }
 
@@ -19,6 +21,30 @@ export default function CanvaViewer({ design, pages, version, startPage }: { des
   const [page, setPage] = useState(startPage)
   const [ready, setReady] = useState(false)
   const stripRef = useRef<HTMLDivElement>(null)
+  const spriteUrl = total ? `${SPRITE_BASE}?n=${total}&cols=${SPRITE_COLS}${version ? `&v=${version}` : ''}` : ''
+  const spriteRows = Math.ceil(total / SPRITE_COLS)
+  const [spriteReady, setSpriteReady] = useState(false)
+
+  useEffect(() => {
+    if (!spriteUrl) return
+    const img = new Image()
+    img.onload = () => setSpriteReady(true)
+    img.src = spriteUrl
+  }, [spriteUrl])
+
+  const tileStyle = (n: number) => {
+    const i = n - 1
+    const col = i % SPRITE_COLS
+    const row = Math.floor(i / SPRITE_COLS)
+    const x = SPRITE_COLS > 1 ? (col / (SPRITE_COLS - 1)) * 100 : 0
+    const y = spriteRows > 1 ? (row / (spriteRows - 1)) * 100 : 0
+    return {
+      display: 'block', width: '100%', aspectRatio: '16 / 9', borderRadius: '4px', backgroundColor: '#1d2126',
+      backgroundImage: spriteReady ? `url(${spriteUrl})` : 'none',
+      backgroundSize: `${SPRITE_COLS * 100}% ${spriteRows * 100}%`,
+      backgroundPosition: `${x}% ${y}%`,
+    }
+  }
 
   useEffect(() => {
     const fromHash = Number(window.location.hash.replace('#', ''))
@@ -92,7 +118,7 @@ export default function CanvaViewer({ design, pages, version, startPage }: { des
                 aria-label={`Page ${p.page}`}
                 aria-current={p.page === page ? 'page' : undefined}
                 style={{ flex: '0 0 auto', width: '128px', padding: 0, border: `2px solid ${p.page === page ? '#ffffff' : 'transparent'}`, borderRadius: '6px', background: 'transparent', cursor: 'pointer', position: 'relative', opacity: p.page === page ? 1 : 0.6 }}>
-                <img src={`${THUMB_BASE}/${p.page}${version ? `?v=${version}` : ''}`} alt="" width={128} height={72} loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', borderRadius: '4px', background: '#1d2126' }} />
+                <span style={tileStyle(p.page)} />
                 <span style={{ position: 'absolute', left: '4px', bottom: '4px', fontSize: '10px', lineHeight: 1, padding: '3px 5px', borderRadius: '3px', background: p.page === page ? DSO_NAVY : 'rgba(0,0,0,0.6)', color: '#ffffff' }}>{p.page}</span>
               </button>
             ))}
