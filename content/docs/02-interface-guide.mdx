@@ -5,11 +5,13 @@ order: 2
 description: The five regions of the screen, the three levels of detail, and what each control does.
 ---
 
-A kiosk visitor has no training and little time. They walk up, touch the screen, and must find what they want in seconds. The screen still has to hold a whole district.
+A kiosk visitor has no training and little time. They walk up, touch the screen, and must find what they want in seconds. The screen still has to hold a whole district, with its buildings, figures, media and forms.
 
-So how does the screen stay simple? The map fills the screen and is always the main object. You control what you see from the left panel, and you read about what you selected in the right panel. The map moves through three levels of detail, and the full interface opens only at the closest level.
+So how does the screen stay simple? It follows three rules. The map fills the screen and is always the main object. You choose on the left and read on the right. And the amount of detail grows only as you zoom in, so the first view is calm and the closest view is complete.
 
 ## The map has three levels of detail
+
+The kiosk uses zoom levels to control how much it tells you at once. Wide views give the big picture in a few figures. Close views give full detail with panels. This keeps the screen readable when you first walk up, and rich once you have chosen where to look.
 
 | Level | What you see | Panels |
 |---|---|---|
@@ -17,13 +19,15 @@ So how does the screen stay simple? The map fills the screen and is always the m
 | LOD 2 | The district core around District IO | District figures along the bottom |
 | LOD 3 | A tilted 3D view of the selected area | Left panel, right panel and map controls |
 
+LOD stands for level of detail. The term comes from 3D mapping, where a model shows more detail the closer you get.
+
 ## LOD 1 and LOD 2 show the district at a glance
 
-At LOD 1 and LOD 2 the markers sit on the map, and the district figures sit in one band along the bottom.
+At the two wide levels there are no side panels. The area markers sit on the map, and the district figures sit in one band along the bottom.
 
 ![LOD 1: homes planned, available units, EV chargers, solar output, transport stops, cycling track and parking](/dso/api/img/02-lod1.jpg)
 
-![LOD 2: the district core, with District IO at the centre](/dso/api/img/02-lod2-dso-1.jpg)
+The figures answer the first questions most visitors have about any district: can people live here, can I find space, how do I get here, and where do I park. Each figure has a row of small icons under it, so the band reads from a few metres away.
 
 | Figure | What it means |
 |---|---|
@@ -35,9 +39,15 @@ At LOD 1 and LOD 2 the markers sit on the map, and the district figures sit in o
 | Cycling track | Length of the jogging and bicycle track |
 | Parking | Parking spaces in the district |
 
-The Reference chapter shows which figures are confirmed and which are indicative.
+Some of these figures come from DSO drawings, and some are indicative until DSO connects its data. The Reference chapter shows the status of each one.
+
+![LOD 2: the district core, with District IO at the centre](/dso/api/img/02-lod2-dso-1.jpg)
+
+LOD 2 moves closer to the district core, where District IO sits between DSO HQ and the lake. It is the bridge between the overview and the full interface.
 
 ## LOD 3 has five regions
+
+At the closest level the full interface opens.
 
 ![the full LOD 3 layout: left panel, map, map controls and right panel](/dso/api/img/04-now-lod3-overview.jpg)
 
@@ -49,6 +59,8 @@ The Reference chapter shows which figures are confirmed and which are indicative
 | Map controls | Timeline shortcut, basemap switch, drop pin, zoom |
 | Right panel | Explains what you selected, and holds the actions |
 
+The regions follow one rule: the left side is for choosing, and the right side is for reading. When you select something on the left or on the map, the right panel updates. The right panel only changes the screen through its actions at the bottom, such as Enquire or View interior.
+
 ## The left panel controls what you see
 
 | Control | What it does |
@@ -59,11 +71,13 @@ The Reference chapter shows which figures are confirmed and which are indicative
 | Assets | Shows asset types on the map: office, residential, commercial, education, retail, mobility, industrial and utilities. |
 | Innovations | Shows innovation sites on the map, for example labs. |
 
-When you open an area, the left panel changes to the list of items inside it, with a Back link at the top.
+Exploration mode is a shortcut for different visitors. An investor and a research lead look for different things, so each mode changes what the kiosk puts first. Assets and Innovations are map filters: turn one on to see where that type of place is in the district, and turn it off to clear the map.
+
+When you open an area, the left panel changes to the list of items inside it, with a Back link at the top. This is how you go from District IO to a phase, and from a phase to a building.
 
 ## The right panel explains what you selected
 
-The right panel always follows the same order, top to bottom:
+The right panel always follows the same order, top to bottom. A visitor who has read one right panel can read them all.
 
 1. Status label and title
 2. Image gallery
@@ -83,7 +97,11 @@ Enquire opens a short form: full name, company name, email, phone number, and an
 | Drop pin | Drag it to a street to open the street view |
 | Zoom | Moves in and out |
 
+The drop pin is the way into street view. Drag it from the controls to any lit street on the map, and the view drops to eye level at that point.
+
 ## Status labels tell you what you can act on
+
+Every area and space carries one label. The label tells you two things at once: whether the space exists, and whether you can take it.
 
 | Label | Meaning | What you can do |
 |---|---|---|
