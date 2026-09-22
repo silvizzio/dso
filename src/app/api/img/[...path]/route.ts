@@ -13,7 +13,7 @@ const EXT_MIME: Record<string, string> = {
 const IMAGES_DIR = path.join(process.cwd(), 'private', 'images', 'docs')
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
 ) {
   const { path: segments } = await params
@@ -38,11 +38,14 @@ export async function GET(
     return new Response('Not found', { status: 404 })
   }
 
+  // Versioned address (?v=<content fingerprint>): cache for a year, it never changes.
+  // Plain address: always check for a newer file.
+  const versioned = new URL(req.url).searchParams.has('v')
   return new Response(new Uint8Array(buffer), {
     status: 200,
     headers: {
       'Content-Type': mime,
-      'Cache-Control': 'public, max-age=3600, must-revalidate',
+      'Cache-Control': versioned ? 'public, max-age=31536000, immutable' : 'public, max-age=0, must-revalidate',
     },
   })
 }
