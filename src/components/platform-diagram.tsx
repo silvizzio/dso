@@ -158,13 +158,13 @@ export function PlatformDiagram({ focus = 'all' }: { focus?: Focus }) {
         {STATES.map(s => <StateCard key={s.key} s={s} focus={focus} />)}
       </div>
 
-      <Connector label="Enquire from any timeline state" />
+      <Connector label="Enquire from a proposed or available property" />
 
       <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '10px', border: `1px solid ${DSO_NAVY}`, borderRadius: '10px', padding: '12px 16px', background: '#ffffff' }}>
         <span style={{ fontSize: '13px', fontWeight: 600, color: DSO_NAVY }}>Enquire</span>
         <svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><path d="M0 5h25M21 1l4 4-4 4" fill="none" stroke={DSO_NAVY} strokeWidth="1.2" /></svg>
         <span style={{ fontSize: '13px', color: fg }}>DSO commercial team</span>
-        <span style={{ fontSize: '11px', color: muted, flexBasis: '100%', textAlign: 'center' }}>Available from any property, phase or building, in every timeline state</span>
+        <span style={{ fontSize: '11px', color: muted, flexBasis: '100%', textAlign: 'center' }}>Explore Future or available space in Now, then open Enquire from the property view</span>
       </div>
 
       <figcaption style={{ marginTop: '10px', fontSize: '11px', color: muted, textAlign: 'center', lineHeight: 1.5 }}>{caption}</figcaption>

@@ -1,19 +1,19 @@
 import Link from 'next/link'
 import DocHeader from '@/components/doc-header'
+import { imageUrl } from '@/components/doc-image'
 import { getSearchIndex } from '@/lib/search'
 import { getDocsBySection, getDoc } from '@/lib/docs'
 
 // Layout and styles are the template's. Only content changes per project.
 // Sections and chapters come from content/docs, the same source as the sidebar.
 const PLACEHOLDER = 'linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%)'
-const IMG = '/dso/api/img/'
 
 // Hero cards use the first image of each chapter, read from its MDX file.
 // HERO_FADE puts a white fade behind the card text so it stays readable.
 const HERO_FADE = true
 const firstImage = (slug: string) => {
   const m = getDoc(slug)?.content.match(/!\[[^\]]*\]\(([^)]+)\)/)
-  return m ? m[1] : null
+  return m ? imageUrl(m[1].split('/').pop()!) : null
 }
 const heroBg = (slug: string) => {
   const src = firstImage(slug)
@@ -29,7 +29,7 @@ const COVERS: Record<string, string> = {
   '16-check-the-delivery-record': '05-past-lod3-2020.jpg',
 }
 const cover = (slug: string) => {
-  if (COVERS[slug]) return `url('${IMG}${COVERS[slug]}')`
+  if (COVERS[slug]) return `url('${imageUrl(COVERS[slug])}')`
   const src = firstImage(slug)
   return src ? `url('${src}')` : PLACEHOLDER
 }
