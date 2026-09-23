@@ -36,10 +36,10 @@ const cover = (slug: string) => {
 
 // Sections shown under Browse by section. Reference is linked from the start box instead.
 const SECTION_DESC: Record<string, string> = {
-  'Getting Started': 'What the platform is for, what District IO offers, and how to find your way around the screen.',
-  'Future': 'District IO before it is built: what it offers, its phases and buildings, and how to make an enquiry.',
-  'Now': 'The district as it runs today: space to lease, building performance, leased buildings, live media and virtual tours.',
-  'Past': 'How the district has grown over the years, and the record of everything DSO has delivered.',
+  'Getting Started': 'Understand the purpose of the Digital Twin and get to know the screen layout.',
+  'Future': 'Explore the District IO proposal, compare phases and buildings, and enquire about a property.',
+  'Now': 'Explore existing properties, review leasing information and look around with cameras and virtual tours.',
+  'Past': 'See how the district developed through archived imagery and records of completed projects.',
 }
 
 // DSO brand primary (dso.ae). District IO brand blue (districtio.com) is #006fff.
@@ -70,7 +70,7 @@ export default function Home() {
         <div className="mb-12">
           <h1 className="text-3xl font-medium mb-2">Dubai Silicon Oasis (DSO)</h1>
           <p className="text-muted-foreground text-sm">
-            Find out what you can lease or buy at Dubai Silicon Oasis, when it will be ready and what it includes. The main offer is District IO, a 595,300 m² mixed-use complex delivered in five phases.
+            Explore the DSO Digital Twin and learn how to compare properties, review development plans and make an enquiry. The guide focuses on District IO, a proposed mixed-use complex with 595,300 m² of gross floor area across five phases.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function Home() {
           <div>
             <p className="text-xs uppercase tracking-wide mb-2" style={{ color: 'rgba(255,255,255,0.6)' }}>Getting started</p>
             <h2 className="text-base font-medium mb-1" style={{ color: '#ffffff' }}>New to the project?</h2>
-            <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Start with the overview, then read the interface guide. You will find terms and data sources in the reference.</p>
+            <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Start with the overview and interface guide. Use the reference to check terms, data sources and figures that still need confirmation.</p>
           </div>
           <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '8px' }}>
             {quickDocs.map(doc => (

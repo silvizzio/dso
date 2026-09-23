@@ -1,7 +1,7 @@
 # DSO Digital Twin documentation
 
 Documentation site for the Dubai Silicon Oasis (DSO) Digital Twin, built by Vizzio under contract DIEZ/CON-00844.
-It explains what the platform does, how a visitor uses it, and the value each feature creates for buyers and for DSO.
+The guide explains how visitors explore properties, assess the District IO proposal and contact the DSO commercial team.
 
 Live site: https://www.vizzio.space/dso
 
@@ -32,8 +32,8 @@ Each timeline state is a section, and each chapter inside a section covers one t
 | Past | 14 "Past" Overview, 15 Step Through the Archive, 16 Check the Delivery Record |
 | Reference | 17 Reference |
 
-Future comes first because it is the default state of the platform and holds the main offer, District IO.
-Now and Past follow as proof: what DSO runs today, and what it has delivered.
+Future comes first because it is the default view and introduces District IO.
+Now covers existing properties, while Past shows the district through archived imagery and completion records.
 
 ## Where things live
 
@@ -69,32 +69,34 @@ Overview chapters use a quoted title, written with single quotes around the whol
 title: '"Future" Overview'
 ```
 
-Each chapter follows the same pattern:
+Write each chapter around the task it explains:
 
-1. Opening: the situation and the problem in two or three sentences, then what the feature does about it.
-2. Action titles: every heading states a conclusion, for example "The phase is the right unit of exploration".
-3. The flow as numbered steps, with nested bullets for what the screen does.
-4. The value for buyers and for the DSO commercial team.
-5. The design decisions, each with its reason.
-6. A Next link to the chapter that answers the following question.
+1. Introduce the visitor's question and explain how the feature helps.
+2. Use descriptive headings that tell readers what they will find.
+3. Explain the actions in order, including what changes on screen. Use numbered steps when they make a procedure easier to follow.
+4. Explain the benefit for visitors and the DSO team where it adds useful context.
+5. Describe design choices when their reasons help the reader understand the interface.
+6. Link to the next relevant chapter where there is a natural continuation.
 
 Every chapter must reference at least one image.
 Every overview chapter carries the platform diagram directly under its first image.
 
 ## Writing rules
 
-The guide explains the idea, the flow and the value of each feature.
-It does not restate what is on screen or repeat the data the platform already shows.
+Use plain, professional British English.
+Explain what visitors can do and why the information helps them.
+Keep clear wording as it is, and add detail where a reader needs it to understand a task.
+Avoid predicting how every visitor will feel or claiming that a feature guarantees an enquiry.
 
 - Say "the DSO Digital Twin" or "the platform". Do not use "kiosk".
 - Write one sentence per line in the MDX source. Markdown renders the lines as one paragraph.
-- Keep sentences under 25 words.
+- Aim for sentences under 25 words, with some variation in length. Split a sentence when it becomes hard to follow.
 - Define each term once, in bold, where it first appears. Do not bold anything else in body text.
 - No em dashes and no semicolons. Use a colon, a comma, parentheses or two sentences.
 - No spaces around slashes.
 - Avoid marketing adjectives and filler words, for example `seamless`, `powerful`, `leverage`, `ensure` or `journey`.
 - Label projected and indicative figures on the page.
-  The Reference chapter holds the status of every figure.
+  Use the Reference chapter to check data status. Do not describe an indicative value, placeholder feed or pending connection as live.
 
 ## Adding screens
 

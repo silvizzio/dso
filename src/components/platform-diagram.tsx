@@ -22,7 +22,7 @@ const STATES: StateDef[] = [
     badge: 'Default',
     question: 'What is coming, and when?',
     color: '#006fff',
-    data: 'Concept design report, projected',
+    data: 'Concept design figures. Delivery dates are indicative.',
     tasks: [
       { label: 'Explore District IO', slug: '04-explore-district-io' },
       { label: 'Step through the delivery years', slug: '05-step-through-the-delivery-years' },
@@ -35,7 +35,7 @@ const STATES: StateDef[] = [
     label: 'Now',
     question: 'What is here, and what can I lease?',
     color: DSO_NAVY,
-    data: 'Leasing feed, BMS and CCTV, live',
+    data: 'Indicative leasing and BMS data. Placeholder cameras.',
     tasks: [
       { label: 'Find available space', slug: '09-find-available-space' },
       { label: 'Check building performance', slug: '10-check-building-performance' },
@@ -47,9 +47,9 @@ const STATES: StateDef[] = [
   {
     key: 'past',
     label: 'Past',
-    question: 'Has DSO delivered before?',
+    question: 'What has DSO already completed?',
     color: '#4a5a6a',
-    data: 'Archived satellite imagery, historic',
+    data: 'Archived satellite imagery and completion records',
     tasks: [
       { label: 'Step through the archive', slug: '15-step-through-the-archive' },
       { label: 'Check the delivery record', slug: '16-check-the-delivery-record' },
@@ -128,8 +128,8 @@ function StateCard({ s, focus }: { s: StateDef; focus: Focus }) {
 export function PlatformDiagram({ focus = 'all' }: { focus?: Focus }) {
   const current = STATES.find(s => s.key === focus)
   const caption = current
-    ? `Where ${current.label} sits in the platform. The highlighted column is this section. Each task links to its chapter.`
-    : 'How the platform fits together: one 3D map, three timeline states, one action. Each task links to its chapter.'
+    ? `The highlighted column shows ${current.label}. Select a task to read its chapter.`
+    : 'Explore Future, Now and Past on the same map. Select a task to read its chapter.'
 
   return (
     <figure className="not-prose" style={{ margin: '28px 0 36px', fontFamily: 'Inter, sans-serif', background: PANEL_BG, border: `1px solid ${PANEL_BORDER}`, borderRadius: '14px', padding: '18px 18px 14px' }}>
@@ -158,7 +158,7 @@ export function PlatformDiagram({ focus = 'all' }: { focus?: Focus }) {
         {STATES.map(s => <StateCard key={s.key} s={s} focus={focus} />)}
       </div>
 
-      <Connector label="Every timeline state leads to one action" />
+      <Connector label="Enquire from any timeline state" />
 
       <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '10px', border: `1px solid ${DSO_NAVY}`, borderRadius: '10px', padding: '12px 16px', background: '#ffffff' }}>
         <span style={{ fontSize: '13px', fontWeight: 600, color: DSO_NAVY }}>Enquire</span>

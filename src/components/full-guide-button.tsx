@@ -19,7 +19,7 @@ export default function FullGuideButton() {
       URL.revokeObjectURL(url)
     } catch (e) {
       console.error(e)
-      alert('PDF generation failed. Please try again.')
+      alert('We could not create your PDF. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -38,7 +38,7 @@ export default function FullGuideButton() {
         <polyline points="7 10 12 15 17 10"/>
         <line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
-      {loading ? 'Generating...' : 'Download full guide'}
+      {loading ? 'Preparing PDF...' : 'Download full guide'}
     </button>
   )
 }

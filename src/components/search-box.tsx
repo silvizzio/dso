@@ -74,7 +74,7 @@ export default function SearchBox({ docs }: Props) {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0 }}>
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
         </svg>
-        <span style={{ flex: 1 }}>Search documentation...</span>
+        <span style={{ flex: 1 }}>Search the guide...</span>
         <span style={{ fontSize: '10px', background: 'hsl(var(--muted))', padding: '1px 5px', borderRadius: '3px', letterSpacing: '0.02em' }}>⌘K</span>
       </button>
 
@@ -96,7 +96,7 @@ export default function SearchBox({ docs }: Props) {
                 ref={inputRef}
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder="Search documentation..."
+                placeholder="Search the guide..."
                 style={{ flex: 1, border: 'none', outline: 'none', background: 'transparent', fontSize: '14px', color: 'hsl(var(--foreground))' }}
               />
               {query && (
@@ -111,7 +111,7 @@ export default function SearchBox({ docs }: Props) {
             <div style={{ overflowY: 'auto', flex: 1 }}>
               {query && results.length === 0 && (
                 <div style={{ padding: '32px 16px', textAlign: 'center', fontSize: '13px', color: 'hsl(var(--muted-foreground))' }}>
-                  No results for &ldquo;{query}&rdquo;
+                  No results for &ldquo;{query}&rdquo;. Try a property name or a different keyword.
                 </div>
               )}
 
