@@ -36,10 +36,10 @@ const cover = (slug: string) => {
 
 // Sections shown under Browse by section. Reference is linked from the start box instead.
 const SECTION_DESC: Record<string, string> = {
-  'Getting Started': 'What the platform shows, what District IO offers, and how to use the screen.',
-  'Future': 'District IO before it is built: what it offers, its phases, its buildings, and how to enquire.',
-  'Now': 'What exists today: space to lease, building performance, leased buildings, live media and tours.',
-  'Past': 'How the district grew, and the record of what DSO has delivered.',
+  'Getting Started': 'What the platform is for, what District IO offers, and how to find your way around the screen.',
+  'Future': 'District IO before it is built: what it offers, its phases and buildings, and how to make an enquiry.',
+  'Now': 'The district as it runs today: space to lease, building performance, leased buildings, live media and virtual tours.',
+  'Past': 'How the district has grown over the years, and the record of everything DSO has delivered.',
 }
 
 // DSO brand primary (dso.ae). District IO brand blue (districtio.com) is #006fff.
@@ -70,7 +70,7 @@ export default function Home() {
         <div className="mb-12">
           <h1 className="text-3xl font-medium mb-2">Dubai Silicon Oasis (DSO)</h1>
           <p className="text-muted-foreground text-sm">
-            See what you can lease or buy at Dubai Silicon Oasis, when it will be ready, and what it contains. The main offer is District IO, a 595,300 m² mixed-use complex in five phases.
+            Find out what you can lease or buy at Dubai Silicon Oasis, when it will be ready and what it includes. The main offer is District IO, a 595,300 m² mixed-use complex delivered in five phases.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function Home() {
           <div>
             <p className="text-xs uppercase tracking-wide mb-2" style={{ color: 'rgba(255,255,255,0.6)' }}>Getting started</p>
             <h2 className="text-base font-medium mb-1" style={{ color: '#ffffff' }}>New to the project?</h2>
-            <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Start with the overview, then read the interface guide. Terms and data sources are in the reference.</p>
+            <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Start with the overview, then read the interface guide. You will find terms and data sources in the reference.</p>
           </div>
           <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '8px' }}>
             {quickDocs.map(doc => (

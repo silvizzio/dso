@@ -72,7 +72,7 @@ export default function Sidebar({ docsBySection, lastUpdated }: Props) {
         </nav>
 
         <div style={{ padding: '12px 16px', borderTop: '1px solid hsl(var(--border))' }}>
-          <p style={{ fontSize: '10px', color: 'hsl(var(--muted-foreground))' }}>Confidential — Authorized Stakeholders Only</p>
+          <p style={{ fontSize: '10px', color: 'hsl(var(--muted-foreground))' }}>Confidential: Authorised Stakeholders Only</p>
         </div>
       </div>
     </aside>

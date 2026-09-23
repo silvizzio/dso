@@ -138,7 +138,7 @@ export function PlatformDiagram({ focus = 'all' }: { focus?: Focus }) {
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', justifyContent: 'space-between', gap: '8px', marginBottom: '12px' }}>
           <div>
             <p style={{ fontSize: '14px', fontWeight: 600, margin: 0 }}>DSO Digital Twin</p>
-            <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', margin: '2px 0 0' }}>One 3D map of Dubai Silicon Oasis on a 55 inch touch screen</p>
+            <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', margin: '2px 0 0' }}>A single 3D map of Dubai Silicon Oasis on a 55-inch touch screen</p>
           </div>
           <span style={{ fontSize: '10px', letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>Levels of detail</span>
         </div>
@@ -158,13 +158,13 @@ export function PlatformDiagram({ focus = 'all' }: { focus?: Focus }) {
         {STATES.map(s => <StateCard key={s.key} s={s} focus={focus} />)}
       </div>
 
-      <Connector label="Every state ends in one action" />
+      <Connector label="Every timeline state leads to one action" />
 
       <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '10px', border: `1px solid ${DSO_NAVY}`, borderRadius: '10px', padding: '12px 16px', background: '#ffffff' }}>
         <span style={{ fontSize: '13px', fontWeight: 600, color: DSO_NAVY }}>Enquire</span>
         <svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><path d="M0 5h25M21 1l4 4-4 4" fill="none" stroke={DSO_NAVY} strokeWidth="1.2" /></svg>
         <span style={{ fontSize: '13px', color: fg }}>DSO commercial team</span>
-        <span style={{ fontSize: '11px', color: muted, flexBasis: '100%', textAlign: 'center' }}>From any property, phase or building, in every state</span>
+        <span style={{ fontSize: '11px', color: muted, flexBasis: '100%', textAlign: 'center' }}>Available from any property, phase or building, in every timeline state</span>
       </div>
 
       <figcaption style={{ marginTop: '10px', fontSize: '11px', color: muted, textAlign: 'center', lineHeight: 1.5 }}>{caption}</figcaption>
