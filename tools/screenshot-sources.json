@@ -1,157 +1,215 @@
 {
   "folder": "https://drive.google.com/drive/folders/1ucPRvZ28rA2T3uZnaKQmSXSO3Pip1Va5",
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "note": "Past assets use LOD 3 per the documentation request; source filenames currently say LOD 2. Images use the existing 1920px JPEG pipeline.",
   "images": [
     {
       "source": "LOD 3 - Future 4.png",
       "drive_id": "188yhA-tftzecmmNV2t0tanGbhGeC-wUD",
       "asset": "03-future-lod3-context.jpg",
-      "sha256": "40ec0675685c26243a20abe220bfb1d305a6ee0f9b21b089cd2c85e7e0fb2214"
+      "sha256": "719d1a615abd87298614896e514fd634b0405e50c565e69fe669c7b4ac7d30f9",
+      "source_modified_time": "2026-09-24T11:27:08.927Z",
+      "source_size": 13920628
     },
     {
       "source": "LOD 3 - Future - District IO - 2030 (some phases not built yet).png",
       "drive_id": "1sIru8PuqXqA--kBBJa9BK3D8iTePeeqr",
       "asset": "03-future-lod3-district-io-2030-some-phases-not-built-yet.jpg",
-      "sha256": "eab7dcdb4ed17f6bb95d83e360b5511462fa0a1e2d6f697b19804b43763030ee"
+      "sha256": "0c7ef7bc2710c69662bac90647a7f84fcea01c57790db66fba275552416ff766",
+      "source_modified_time": "2026-09-24T11:26:45.379Z",
+      "source_size": 14434149
     },
     {
       "source": "LOD 3 - Now - Video Enlarge.png",
       "drive_id": "1TuVvKD3JfPeCHgpg8u6UHHmZpgcGD6gK",
       "asset": "04-now-lod3-video-enlarge.jpg",
-      "sha256": "a391d8724c17d511c33868f9fd736978c18a872fe5a7e3a89e5e1e6c8feeee36"
+      "sha256": "a391d8724c17d511c33868f9fd736978c18a872fe5a7e3a89e5e1e6c8feeee36",
+      "source_modified_time": "2026-09-24T11:24:31.995Z",
+      "source_size": 9115150
     },
     {
       "source": "LOD 3 - Now - CCTV Enlarge.png",
       "drive_id": "1izYDSCc2bojUOekb-EHaRk3RPLYPmoNS",
       "asset": "04-now-lod3-cctv-enlarge.jpg",
-      "sha256": "324f6b691561e5ec35fbb28e3dcfaceaecc8461a9cc9a1fc6727af34e470d6b7"
+      "sha256": "324f6b691561e5ec35fbb28e3dcfaceaecc8461a9cc9a1fc6727af34e470d6b7",
+      "source_modified_time": "2026-09-24T11:24:47.028Z",
+      "source_size": 7822231
     },
     {
       "source": "LOD 3 - Now - Placed Pin (exterior virtual tour).png",
       "drive_id": "1YvA1DYFj8Iud8Aukle_URWqEmjQtSNH4",
       "asset": "04-now-lod3-placed-pin-exterior-virtual-tour.jpg",
-      "sha256": "76ba5bacdeee8853a65e1b8b5f694aeafd43c09d32d836575ac202889e655418"
+      "sha256": "76ba5bacdeee8853a65e1b8b5f694aeafd43c09d32d836575ac202889e655418",
+      "source_modified_time": "2026-09-24T11:25:08.899Z",
+      "source_size": 8149467
     },
     {
       "source": "LOD 2 - Now - Drag and Place Pin.png",
       "drive_id": "1gpEOBB_Z9DaDBOI7hEghgH0_rv7jnc0w",
       "asset": "04-now-lod2-drag-and-place-pin.jpg",
-      "sha256": "780b82c5f5316f92c5595c151eebd5d9af25ab1f010f6f2e2344d845704223e0"
+      "sha256": "92bc009fc02f9074e3d5d3d78e56e2c76f8541e5654684ba0c423b5c4e58a63e",
+      "source_modified_time": "2026-09-24T11:25:46.800Z",
+      "source_size": 14136605
     },
     {
       "source": "LOD 2 - Now - 2026.png",
       "drive_id": "1R70usUnk_zGPsxhawxg_rZH2YpPwhJOa",
       "asset": "04-now-lod2-2026.jpg",
-      "sha256": "7e0410b5226adf976f28ea21d414ea67173d507dfe4cfdaf61ec5373736ae6fc"
+      "sha256": "fa7b5c8efc9c076e71515819e07c151561ab37dc37ab64ab3471950dffc35c82",
+      "source_modified_time": "2026-09-24T11:29:04.982Z",
+      "source_size": 15184311
     },
     {
       "source": "LOD 2 - Past - 2020.png",
       "drive_id": "1_nFVJka4FcVd0VunD3Jg4v2tr9IE7W1H",
       "asset": "05-past-lod3-2020.jpg",
-      "sha256": "e324e7380961ca00515315e770dba43961913b9d2656beafe8bb959323a08f3e"
+      "sha256": "4e6a07ee71cf4e690c417e9b1bff7f3c070b3ace739287e8d672a1fff09c0358",
+      "source_modified_time": "2026-09-24T11:30:18.766Z",
+      "source_size": 14698110
     },
     {
       "source": "LOD 2 - Past - 2015.png",
       "drive_id": "17H8UrPgNWl65hgeqERu5RztooTXLp_eF",
       "asset": "05-past-lod3-2015.jpg",
-      "sha256": "06a1075add74e2cd929c5443d0ea5621aa109eb19d2a80566f250685f3cc0c30"
+      "sha256": "5d49d06d32de364928eeeb2fbe46126e55b272db5d427aefe376646f537ee063",
+      "source_modified_time": "2026-09-24T11:33:11.731Z",
+      "source_size": 14187344
     },
     {
       "source": "LOD 2 - Past - 2010.png",
       "drive_id": "1CoEw1G3cOvB4y6RolqnOOApfsnHhxqpV",
       "asset": "05-past-lod3-2010.jpg",
-      "sha256": "16ae507247f90028821d4017a68e02121216858f88cd6800d52e7cfa50f5dfd7"
+      "sha256": "74df09f2c6fa745b34768764184b2bd05e04b8640c5ff05592e733696ed17b5a",
+      "source_modified_time": "2026-09-24T11:31:03.055Z",
+      "source_size": 13754406
     },
     {
       "source": "LOD 2 - Past - 2005.png",
       "drive_id": "1pZLSnLHN3JKFbJm52maF1ESiiqqfD9ru",
       "asset": "05-past-lod3-2005.jpg",
-      "sha256": "91b0b4f71865c576a3a92bec917146651f11dd185a0ecf07676df616273fed25"
+      "sha256": "ee5f66498d0839ec6d109db033845b7a61b53e8354f2c30ffc38e0f860249385",
+      "source_modified_time": "2026-09-24T11:31:16.554Z",
+      "source_size": 8495033
     },
     {
       "source": "LOD 3 - Future - District IO - Building Level.png",
       "drive_id": "1VjjmoUfFxBJDef9YBkUOD3C-F4lPKG_F",
       "asset": "03-future-lod3-district-io-building-level.jpg",
-      "sha256": "ed388fbaa9fc71c81b681beed2ded3cd8fef55f48f7e81c1465abe60a106d1cd"
+      "sha256": "ed388fbaa9fc71c81b681beed2ded3cd8fef55f48f7e81c1465abe60a106d1cd",
+      "source_modified_time": "2026-09-24T11:29:32.219Z",
+      "source_size": 11764520
     },
     {
       "source": "LOD 3 - Future - District IO - 1A - Form.png",
       "drive_id": "1QW1M9Dx0g_wUY_uQ6rvM6mBz96LHbDte",
       "asset": "03-future-lod3-district-io-1a-form.jpg",
-      "sha256": "5578479064fb179a9768c81771a8510c20989e27b3984820cd38d6d7ecd529b7"
+      "sha256": "83d34187ed0323fd05290db2de29ab039a5901cdad45eb4e87601ce2d7fdb511",
+      "source_modified_time": "2026-09-24T11:30:05.362Z",
+      "source_size": 7105296
     },
     {
       "source": "LOD 3 - Future - District IO - 1A-1.png",
       "drive_id": "1jK8dw8U9NdALEUmjsTIRHSo-cvV1U6Yz",
       "asset": "03-future-lod3-district-io-1a-1.jpg",
-      "sha256": "50792d659c8b97724fe717acf55063bb25a767e8b3105243b3e9916996931543"
+      "sha256": "e0822cc7e3bc237686c7f34b93ba2216dc442d0dadb87088edbaf41d656434e7",
+      "source_modified_time": "2026-09-24T11:33:41.745Z",
+      "source_size": 11943941
     },
     {
       "source": "LOD 3 - Future - District IO - 1A.png",
       "drive_id": "118vc87GCWH0gwpvD8Qalii7eXlyM7dW_",
       "asset": "03-future-lod3-district-io-1a.jpg",
-      "sha256": "a0af022f352cc5f3e108c03f71f7801effda3322cb1105dbedcc3ee66d42226f"
+      "sha256": "b6736e6f81977ba1e400c81664d4eaf5875f0bdf664dda40848573b39cab126b",
+      "source_modified_time": "2026-09-24T11:32:28.744Z",
+      "source_size": 14686365
     },
     {
       "source": "LOD 3 - Future - District IO.png",
       "drive_id": "1XWbzLQtytjH9l0BRqkZ-23y5AQvv1bmG",
       "asset": "03-future-lod3-district-io.jpg",
-      "sha256": "b4872d0da410eaf3bd3cd7b5e91b32f074587fff589139c22703b2731cfa5355"
+      "sha256": "e964cdeff051a37b06d4157f420454843f3496220966160d65e46aa360fdbfd9",
+      "source_modified_time": "2026-09-24T11:38:57.442Z",
+      "source_size": 14335131
     },
     {
       "source": "LOD 3 - Now - Available (TechnoHub 4) - Building Level.png",
       "drive_id": "1AawS6iOr7zeZnE7UtPG8YM2MOrgiv_US",
       "asset": "04-now-lod3-available-technohub-4-building-level.jpg",
-      "sha256": "3bbf6d8bba1300e577b973bc9d9d664d9857d46d43019ee7a3534b667534418f"
+      "sha256": "3bbf6d8bba1300e577b973bc9d9d664d9857d46d43019ee7a3534b667534418f",
+      "source_modified_time": "2026-09-24T11:36:08.547Z",
+      "source_size": 14037863
     },
     {
       "source": "LOD 3 - Now - LIU 8 2.png",
       "drive_id": "1bRydm5fReB-XYAZDHIuisOTWK2C1msB-",
       "asset": "04-now-lod3-liu-8-2.jpg",
-      "sha256": "aa08c18e2257054fc73570a068e60229819275069ac756022f776446a180ae30"
+      "sha256": "aa08c18e2257054fc73570a068e60229819275069ac756022f776446a180ae30",
+      "source_modified_time": "2026-09-24T11:35:27.338Z",
+      "source_size": 13494370
     },
     {
       "source": "LOD 3 - Now - LIU 8 1.png",
       "drive_id": "1atT_ow4LpbWRHcFpD7Fy-mqTgLuXIQvR",
       "asset": "04-now-lod3-liu-8-1.jpg",
-      "sha256": "5be727ef9fa43123654dff17bd0755d4129dfa2d6801158792d78686e9da82e3"
+      "sha256": "5be727ef9fa43123654dff17bd0755d4129dfa2d6801158792d78686e9da82e3",
+      "source_modified_time": "2026-09-24T11:37:18.231Z",
+      "source_size": 13219833
     },
     {
       "source": "LOD 3 - Now - Available (TechnoHub 4).png",
       "drive_id": "190_-XS3zTPzTcw1fHyAB91YEECvfuHWy",
       "asset": "04-now-lod3-available-technohub-4.jpg",
-      "sha256": "ea9b769e7c7402b1d2078458646e56aa1326640251e358517397204a9976a29b"
+      "sha256": "ea9b769e7c7402b1d2078458646e56aa1326640251e358517397204a9976a29b",
+      "source_modified_time": "2026-09-24T11:38:15.821Z",
+      "source_size": 13898112
     },
     {
       "source": "LOD 3 - Now - Leased.png",
       "drive_id": "1A5NMPD4GsyvFEhLV5LUsQ4RX4a5VxIQs",
       "asset": "04-now-lod3-leased.jpg",
-      "sha256": "cd32ff37ae41a243cd425761c89dd4396b0cfca56955f769260581419a621fd3"
+      "sha256": "cd32ff37ae41a243cd425761c89dd4396b0cfca56955f769260581419a621fd3",
+      "source_modified_time": "2026-09-24T11:37:40.072Z",
+      "source_size": 13596126
     },
     {
       "source": "LOD 2 - Now - Overview.png",
       "drive_id": "1ap0u2ogobNxN1etGVVHZAYvmY3hq0sia",
       "asset": "04-now-lod2-overview.jpg",
-      "sha256": "58bed468bea0edc8b2c903a4d12cfce8e87011d4321ad50eb1422cc56324cfd7"
+      "sha256": "4d74fa061eeed66130440f6068286a2357fabe051ed9d746f75bb80cf53d2270",
+      "source_modified_time": "2026-09-24T11:36:48.524Z",
+      "source_size": 14683804
     },
     {
       "source": "LOD 2 - Future - Overview.png",
       "drive_id": "1tndGA83Y1-jH81EWDJPpR9kDA8cPkWKl",
       "asset": "03-future-lod2-overview.jpg",
-      "sha256": "5749dd1a4d2cbe0841fb5ef81658d721a5746de1e094cbad785760b6d7fdac06"
+      "sha256": "f4df337e59a3e851457908a67d0e28c394841793830738b59dc13c03fb36437f",
+      "source_modified_time": "2026-09-24T11:34:59.243Z",
+      "source_size": 14444049
     },
     {
       "source": "LOD 2 - DSO 1.png",
       "drive_id": "1Y5lKNvkxS_L2wi3Tc-zCaVc8E4htnRlE",
       "asset": "02-lod2-dso-1.jpg",
-      "sha256": "0b39c931da0c8dfeb9f4a1609b3a6b87dc1990250a30022aa5384551ca979ea1"
+      "sha256": "0b39c931da0c8dfeb9f4a1609b3a6b87dc1990250a30022aa5384551ca979ea1",
+      "source_modified_time": "2026-09-23T10:38:50.438Z",
+      "source_size": 15754645
     },
     {
       "source": "LOD 1.png",
       "drive_id": "1Nu0F807tisykakYDGRdmOYExPgjx6kDp",
       "asset": "02-lod1.jpg",
-      "sha256": "cd59826dacdd7d3da3d9f11dfa1c9c4f5849ff048cec536c982036dab5d0fc0d"
+      "sha256": "cd59826dacdd7d3da3d9f11dfa1c9c4f5849ff048cec536c982036dab5d0fc0d",
+      "source_modified_time": "2026-09-23T10:38:50.432Z",
+      "source_size": 16401491
+    },
+    {
+      "drive_id": "1NmrmGGYfBocqs2hMQQ2zpoy39btz6bNQ",
+      "source": "LOD 3 - Now - Virtual Tour Interior.png",
+      "asset": "04-now-lod3-virtual-tour-interior.jpg",
+      "sha256": "0ff7db06eadb6885f1965264254b9db23465706f58e33bd3a3b9c2388103391d",
+      "source_modified_time": "2026-09-24T11:23:08.495Z",
+      "source_size": 7232194
     }
   ]
 }

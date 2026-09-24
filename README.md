@@ -208,9 +208,11 @@ Update `package.json` and those display strings together on a release.
 
 Confidential. For authorised DSO and Vizzio stakeholders only.
 
-## Screenshot refresh (23 September 2026)
+## Screenshot refresh (24 September 2026)
 
 The current screenshots come from the [DSO Drive folder](https://drive.google.com/drive/folders/1ucPRvZ28rA2T3uZnaKQmSXSO3Pip1Va5).
 `tools/screenshot-sources.json` records each published asset, its source file and its checksum.
 Past uses LOD 3 in the guide, as requested, even though the supplied PNG filenames currently say LOD 2.
 The archive timelapse uses the 2005, 2010, 2015 and 2020 screenshots and ends with the 2026 Now view.
+
+The latest phase markers use Planned and the details panel uses Target Year. These indicate proposed timing, not completed construction.
