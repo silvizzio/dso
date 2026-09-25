@@ -5,43 +5,32 @@ order: 12
 description: Open camera feeds and district videos, understand their labels and return to the property you were exploring.
 ---
 
-Photographs provide a useful introduction to a property, but they show one place at one moment.
-The Digital Twin also includes camera feeds and videos to give visitors more context.
-Cameras are intended to show current activity, while videos introduce the district and the people who use it.
+Camera feeds and videos provide another way to explore a property from the touch screen. Cameras are intended to show current activity in a particular location, while videos present recorded material about places, activities or events.
 
-## Opening a camera feed
+The prototype uses placeholder camera content and example videos. The labels demonstrate the intended interface, so a **Live** label on a sample camera does not mean that feed is connected.
 
-A camera can show the entrance, lobby or other area it covers, including activity visible at that moment.
-That view adds context to the property details, while remaining limited to the camera's position and field of view.
+## Opening a camera
 
-Look for camera tiles in the right panel of an existing building.
-Select a tile to open a larger camera viewer over the map, with its name, location and a live-status label.
-In this prototype, the label illustrates the intended connected view; it does not confirm that the displayed footage is live.
-The current screens use placeholder feeds until DSO confirms the camera list and access.
+Look for camera tiles in the right panel of an existing building. Tap a tile to open a larger viewer over the map, with the camera's name, location and live-status label.
 
 ![A camera viewer over the map, with its name and an illustrative live-status label](/dso/api/img/04-now-lod3-cctv-enlarge.jpg)
 
-## Watching district videos
+Once connected, a camera can show activity at the entrance, lobby or other area it covers. Its position limits what visitors can see; it gives a view of that location, rather than an account of everything happening in the building.
 
-Videos can introduce places, activities and events that a map cannot explain on its own.
-The player shown here uses example footage; it should not be treated as a verified tour of the selected DSO property.
+## Watching a video
 
-Select a video tile in the right panel to open the player.
-Use the thumbnails below it to switch between videos.
+Select a video tile to open the player over the map. Use the playback controls to watch it and the thumbnail strip below to switch between videos.
 
 ![The video player over the map, with playback controls and a thumbnail strip below](/dso/api/img/04-now-lod3-video-enlarge.jpg)
 
-## Keeping the media in context
+The footage shown here is an example for the prototype, not a verified tour of the selected DSO property. It needs to be replaced with the appropriate material before it can introduce that property to visitors.
 
-Cameras and videos serve different purposes, so their labels need to make that distinction clear.
-Connected cameras are intended to show current conditions, while produced videos show recorded material.
-The sample camera label alone is not evidence of an active connection.
-Placeholder content must remain identified until it is replaced.
+## Returning to the property
 
-Both viewers open over the map and close back to the same location.
-Visitors can watch the media, then continue exploring the property and use Enquire where that action is available.
+Close either viewer to return to the same place on the map. You can then continue exploring the building or use Enquire where that action is available.
 
-<Callout type="note" title="Camera feeds are placeholders">
-The camera content on these screens is placeholder material until DSO confirms its camera list and feed access.
-See the [Reference](/dso/docs/17-reference) for the outstanding requirements.
+Camera and video labels should make clear whether visitors are seeing a connected feed, a recording or placeholder material. That distinction matters when using the media to answer questions about a property.
+
+<Callout type="note" title="Camera feeds are not connected yet">
+DSO needs to confirm the camera list and provide access to the feeds. The current camera content is placeholder material; see the [Reference](/dso/docs/17-reference) for the outstanding requirements.
 </Callout>
