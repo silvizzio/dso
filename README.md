@@ -213,6 +213,10 @@ Confidential. For authorised DSO and Vizzio stakeholders only.
 The current screenshots come from the [DSO Drive folder](https://drive.google.com/drive/folders/1ucPRvZ28rA2T3uZnaKQmSXSO3Pip1Va5).
 `tools/screenshot-sources.json` records each published asset, its source file and its checksum.
 Past uses LOD 3 in the guide, as requested, even though the supplied PNG filenames currently say LOD 2.
-The archive timelapse uses the 2005, 2010, 2015 and 2020 screenshots and ends with the 2026 Now view.
+The archive timelapse uses the 2010, 2015 and 2020 screenshots and ends with the 2026 Now view. The 2005 frame is excluded from the published archive.
 
 The latest phase markers use Planned and the details panel uses Target Year. These indicate proposed timing, not completed construction.
+
+## Editorial reference
+
+Follow [Documentation writing style](./EDITORIAL-STYLE.md) when revising the guide. Keep explanations natural, practical, and consistent with the product.
