@@ -26,6 +26,7 @@ const heroBg = (slug: string) => {
 const COVERS: Record<string, string> = {
   '02-interface-guide': '02-lod2-dso-1.jpg',
   '04-explore-district-io': '03-future-lod3-district-io-1a.jpg',
+  '13-walk-the-street-and-interior': '04-now-lod2-drag-and-place-pin.jpg',
   '16-check-the-delivery-record': '05-past-lod3-2020.jpg',
 }
 const cover = (slug: string) => {
